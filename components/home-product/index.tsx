@@ -27,7 +27,7 @@ const HomeProducts: FC<Props> = ({ data, page }) => {
         })}
       </div>
       {page && (
-        <Link href="/all-products">
+        <Link href="/products">
           All Products{" "}
           <span>
             <ArrowRight />

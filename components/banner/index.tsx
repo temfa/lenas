@@ -16,7 +16,7 @@ const Banner = () => {
           Our luxurious skincare formulations are crafted to nourish, rejuvenate, and reveal your inner radiance.
         </motion.p>
         <motion.button initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 6 }}>
-          <Link href="/shop">Shop Now</Link>
+          <Link href="/products">Shop Now</Link>
         </motion.button>
       </div>
     </div>

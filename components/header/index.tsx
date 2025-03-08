@@ -8,7 +8,7 @@ const Header = () => {
     <header className={styles.container}>
       <nav>
         <Link href="/about">About Us</Link>
-        <Link href="/all-products">Products</Link>
+        <Link href="/products">Products</Link>
         <Link href="/contact">Contact</Link>
       </nav>
       <h2>Lenas</h2>
