@@ -1,0 +1,39 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 24px;
+    background-color: white;
+    align-items: center;
+}
+
+.container nav,
+.container div {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.container nav a,
+.container div a {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 24px;
+    transition: 1s all ease;
+    padding: 10px 12px;
+}
+
+.container nav a:hover,
+.container div a:hover {
+    background-color: #dc1274;
+    color: white;
+    transition: 1s all ease;
+    border-radius: 6px;
+}
+
+.container div a:last-child {
+    background-color: #dc1274;
+    color: white;
+    transition: 1s all ease;
+    border-radius: 6px;
+}

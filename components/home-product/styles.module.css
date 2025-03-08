@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 80px 0px;
+    width: 90%;
+    max-width: 1296px;
+    margin: 0px auto;
+}
+
+.container>h2 {
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 38px;
+    letter-spacing: 1px;
+}
+
+.body {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 32px;
+    /* align-items: flex-start; */
+}
+
+.container>a {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 20px;
+    gap: 6px;
+    letter-spacing: 1px;
+}
+
+.container>a span {
+    margin-top: 6px;
+}
