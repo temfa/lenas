@@ -1,12 +1,13 @@
 import React from "react";
 import styles from "./styles.module.css";
 import Link from "next/link";
+import Image from "next/image";
 
 const Footer = () => {
   return (
     <footer className={styles.container}>
       <div className={styles.top}>
-        <h2>Lenas</h2>
+        <Image src="/images/favicon.ico" width={50} height={50} alt="Logo" />
         <div className={styles.single}>
           <h2>Services</h2>
           <div>

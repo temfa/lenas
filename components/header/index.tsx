@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./styles.module.css";
 import Link from "next/link";
+import Image from "next/image";
 // import CartSvg from "@/svgs/cart";
 
 const Header = () => {
@@ -11,7 +12,7 @@ const Header = () => {
         <Link href="/products">Products</Link>
         <Link href="/contact">Contact</Link>
       </nav>
-      <h2>Lenas</h2>
+      <Image src="/images/logo.png" width={180} height={50} alt="Logo" />
       <div>
         <Link href="/cart">
           Cart

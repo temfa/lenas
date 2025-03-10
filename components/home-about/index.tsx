@@ -1,23 +1,25 @@
 import React from "react";
 import styles from "./styles.module.css";
-import Image from "next/image";
 import Link from "next/link";
 
 const HomeAbout = () => {
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
-        <Image
-          width={400}
-          height={400}
-          alt="About"
-          src="/images/8.jpeg"
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className={styles.video}
           data-aos="fade-right"
           data-aos-duration="1000"
           data-aos-easing="ease-in"
           data-aos-mirror="true"
-          data-aos-once="false"
-        />
+          data-aos-once="false">
+          <source src="/video.MP4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
         <div data-aos="fade-left" data-aos-duration="1000" data-aos-easing="ease-in" data-aos-mirror="true" data-aos-once="false">
           <h2>About Us</h2>
           <p>

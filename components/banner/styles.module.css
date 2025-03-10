@@ -47,7 +47,23 @@
     width: 206px;
     border-radius: 6px;
     border: none;
-    background-color: #dc1274;
+    background-color: #ff34a0;
     color: white;
     padding: 12px 0px;
+}
+
+@media screen and (max-width: 500px) {
+    .container {
+        height: 650px;
+    }
+
+    .content {
+        width: 100%;
+        padding: 0px 24px;
+    }
+
+    .content h2 {
+        font-size: 32px;
+        line-height: 48px;
+    }
 }

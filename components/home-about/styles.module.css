@@ -12,10 +12,10 @@
     margin: 0px auto;
 }
 
-.wrapper img {
+.video {
+    width: 600px;
+    height: 600px;
     object-fit: cover;
-    object-position: top center;
-    border-radius: 50%;
 }
 
 .wrapper div {
@@ -39,9 +39,26 @@
 
 .wrapper div a {
     width: 150px;
-    background-color: #dc1274;
+    background-color: #ff34a0;
     padding: 12px 0px;
     border-radius: 8px;
     text-align: center;
     color: white;
+}
+
+@media screen and (max-width : 500px) {
+    .container {
+        padding: 40px 0px;
+    }
+
+    .wrapper {
+        flex-direction: column;
+        gap: 24px;
+        width: 90%;
+    }
+
+    .video {
+        width: 100%;
+        height: 400px;
+    }
 }

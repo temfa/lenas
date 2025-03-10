@@ -5,7 +5,7 @@
     gap: 80px;
     justify-content: center;
     align-items: center;
-    background-color: #dc1274;
+    background-color: #ff34a0;
 }
 
 .top {
@@ -54,4 +54,24 @@
     line-height: 100%;
     letter-spacing: 1px;
     color: white;
+}
+
+@media screen and (max-width: 500px) {
+    .container {
+        gap: 40px;
+    }
+
+    .top {
+        width: 95%;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .single {
+        width: 100%;
+    }
+
+    .bottom p {
+        font-size: 14px;
+    }
 }

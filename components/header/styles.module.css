@@ -25,14 +25,14 @@
 
 .container nav a:hover,
 .container div a:hover {
-    background-color: #dc1274;
+    background-color: #ff34a0;
     color: white;
     transition: 1s all ease;
     border-radius: 6px;
 }
 
 .container div a:last-child {
-    background-color: #dc1274;
+    background-color: #ff34a0;
     color: white;
     transition: 1s all ease;
     border-radius: 6px;

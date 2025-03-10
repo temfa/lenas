@@ -1,19 +1,27 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import styles from "./styles.module.css";
 import Slider from "react-slick";
 import Image from "next/image";
+import ArrowLeft from "@/svgs/arrowLeft";
+import ArrowRight from "@/svgs/arrowRight";
 
 const Testimonials = () => {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 5000,
+    speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     initialSlide: 1,
-    autoplay: true,
-    autoplaySpeed: 5000,
+    autoplay: false,
+  };
+  const sliderRef = useRef<Slider | null>(null);
+  const next = () => {
+    if (sliderRef.current) sliderRef.current.slickNext();
+  };
+  const previous = () => {
+    if (sliderRef.current) sliderRef.current.slickPrev();
   };
 
   const testimonials = [
@@ -39,7 +47,7 @@ const Testimonials = () => {
   return (
     <div className={styles.container}>
       <h2>Testimonials</h2>
-      <Slider {...settings}>
+      <Slider {...settings} ref={sliderRef}>
         {testimonials?.map((item, index) => {
           return (
             <div className={styles.single} key={index} data-src={item.image}>
@@ -52,6 +60,14 @@ const Testimonials = () => {
           );
         })}
       </Slider>
+      <div className={styles.navigation}>
+        <div onClick={previous}>
+          <ArrowLeft />
+        </div>
+        <div onClick={next}>
+          <ArrowRight />
+        </div>
+      </div>
     </div>
   );
 };
