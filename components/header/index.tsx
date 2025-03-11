@@ -20,7 +20,7 @@ const Header = () => {
         <Link href="/contact">Contact</Link>
       </nav>
       <div className={styles.logo}>
-        <Image src="/images/logo.png" width={180} height={50} alt="Logo" />
+        <Image src="/images/logo-black.png" width={200} height={60} alt="Logo" />
         <div>
           <Bars action={() => setMobile(true)} />
           <CartSvg />
@@ -35,7 +35,7 @@ const Header = () => {
       </div>
       <div className={mobile ? `${styles.mobile} ${styles.none}` : styles.none}>
         <div className={styles.head}>
-          <Image src="/images/logo.png" width={140} height={50} alt="Logo" />
+          <Image src="/images/logo-black.png" width={120} height={50} alt="Logo" />
           <Close action={() => setMobile(false)} />
         </div>
         <div className={styles.nav}>

@@ -8,13 +8,13 @@ const Banner = () => {
   return (
     <div className={styles.container}>
       <div className={styles.overlay}></div>
-      <video autoPlay loop muted playsInline className={styles.video}>
+      <video autoPlay loop playsInline className={styles.video}>
         <source src="/video3.MP4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <div className={styles.content}>
         <motion.h2 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2 }}>
-          Indulge in Beauty Your Natural Glow with Lenas Skincare
+          Indulge in Beauty Your Natural Glow with Lenas Organic Skincare
         </motion.h2>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 4 }}>
           Our luxurious skincare formulations are crafted to nourish, rejuvenate, and reveal your inner radiance.

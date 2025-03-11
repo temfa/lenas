@@ -19,6 +19,9 @@ type Props = {
 const HomeProducts: FC<Props> = ({ data, page }) => {
   return (
     <div className={styles.container}>
+      {/* <div className={styles.header}>
+
+        </div> */}
       <h2 data-aos="fade-in" data-aos-duration="1000" data-aos-easing="ease-in" data-aos-mirror="true" data-aos-once="false">
         Our Skin Catalogue
       </h2>

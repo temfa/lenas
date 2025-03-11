@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <footer className={styles.container}>
       <div className={styles.top}>
-        <Image src="/images/favicon.ico" width={50} height={50} alt="Logo" />
+        <Image src="/images/logo.png" width={150} height={50} alt="Logo" />
         <div className={styles.single}>
           <h2>Services</h2>
           <div>

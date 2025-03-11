@@ -33,9 +33,9 @@ const Testimonials = () => {
     },
     {
       image: "/images/1.jpeg",
-      name: "Kathryn",
+      name: "Jennifer",
       testimony:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut molestiae, mollitia dolor voluptate officiis possimus commodi placeat quos nihil incidunt aperiam quae sint quaerat enim voluptatibus. In molestias mollitia doloremque.",
+        "The soaps are fantastic. I have extremely sensitive skin and I haven't had any issues. Such a smooth , rich lather and made to keep your skin happy and healthy. I use the honey oatmeal on my face and skin looks great.",
     },
     {
       image: "/images/1.jpeg",
@@ -54,7 +54,7 @@ const Testimonials = () => {
               <div>
                 <Image src={item.image} width={150} height={150} alt={``} />
                 <p>{item.testimony}</p>
-                <h3>-{item.name}</h3>
+                <h3>- {item.name}</h3>
               </div>
             </div>
           );

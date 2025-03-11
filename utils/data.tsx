@@ -13,8 +13,9 @@ export const products = [
     promoPrice: 11500,
     description: "Softens , Condition , & Promotes beards growth",
     size: "500ml",
-    image: "/images/4.jpeg",
+    image: "/images/2.jpeg",
   },
+
   {
     title: "Beards Renewal & Restoration oil",
     price: 15000,
@@ -24,13 +25,14 @@ export const products = [
     image: "/images/7.jpeg",
   },
   {
-    title: "NEW Nourish & Flourish collection ",
-    price: 75000,
-    promoPrice: 52500,
-    description: "A bundle that includes the essentials to build and maintain a healthy & skin",
+    title: "Rosewater Kefir & Lavender Bar Soap",
+    price: 12000,
+    promoPrice: 8400,
+    description: "for normal, all skin types, yoni",
     size: "",
-    image: "/images/5.jpeg",
+    image: "/images/17.webp",
   },
+
   {
     title: "Tea Tree & Turmeric Bar Soap",
     price: 12000,
@@ -64,14 +66,7 @@ export const products = [
     size: "",
     image: "/images/12.webp",
   },
-  {
-    title: "Neem & Chlorella Bar Soap",
-    price: 12000,
-    promoPrice: 8400,
-    description: "For acne, eczema, psoriasis, oily skin",
-    size: "",
-    image: "/images/13.webp",
-  },
+
   {
     title: "Chamomile & Calendula Bar Soap",
     price: 12000,
@@ -89,6 +84,14 @@ export const products = [
     image: "/images/15.webp",
   },
   {
+    title: "Neem & Chlorella Bar Soap",
+    price: 12000,
+    promoPrice: 8400,
+    description: "For acne, eczema, psoriasis, oily skin",
+    size: "",
+    image: "/images/13.webp",
+  },
+  {
     title: "Rosemary & Lavender Bar Soap",
     price: 12000,
     promoPrice: 8400,
@@ -97,12 +100,20 @@ export const products = [
     image: "/images/16.webp",
   },
   {
-    title: "Rosewater Kefir & Lavender Bar Soap",
-    price: 12000,
-    promoPrice: 8400,
-    description: "for normal, all skin types, yoni",
+    title: "NEW Nourish & Flourish collection ",
+    price: 75000,
+    promoPrice: 52500,
+    description: "A bundle that includes the essentials to build and maintain a healthy & skin",
     size: "",
-    image: "/images/17.webp",
+    image: "/images/5.jpeg",
+  },
+  {
+    title: "Treatment Beards wash",
+    price: 16500,
+    promoPrice: 11500,
+    description: "Softens , Condition , & Promotes beards growth",
+    size: "500ml",
+    image: "/images/4.jpeg",
   },
 ];
 
