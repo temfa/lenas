@@ -11,6 +11,7 @@ type Props = {
     description: string;
     size: string;
     image: string;
+    promoPrice: number;
   }[];
   page: boolean;
 };
@@ -23,7 +24,9 @@ const HomeProducts: FC<Props> = ({ data, page }) => {
       </h2>
       <div className={styles.body} data-aos="fade-in" data-aos-duration="1000" data-aos-easing="ease-in" data-aos-mirror="true" data-aos-once="false">
         {data?.map((item, index) => {
-          return <SingleProduct image={item.image} title={item.title} description={item.description} price={item.price} size={item.size} key={index} />;
+          return (
+            <SingleProduct image={item.image} title={item.title} description={item.description} price={item.price} size={item.size} key={index} promoPrice={item.promoPrice} />
+          );
         })}
       </div>
       {page && (

@@ -10,9 +10,10 @@ type Props = {
   description: string;
   size: string;
   price: number;
+  promoPrice: number;
 };
 
-const SingleProduct: FC<Props> = ({ image, title, description, size, price }) => {
+const SingleProduct: FC<Props> = ({ image, title, description, size, price, promoPrice }) => {
   return (
     <div className={styles.container}>
       <div className={styles.image}>
@@ -25,7 +26,10 @@ const SingleProduct: FC<Props> = ({ image, title, description, size, price }) =>
       </div>
       <div className={styles.price}>
         <p>{size}</p>
-        <p>{formatter(price)}</p>
+        <div>
+          <p>{formatter(price)}</p>
+          <p>{formatter(promoPrice)}</p>
+        </div>
       </div>
       <div className={styles.buy}>
         <button>Buy Now</button>

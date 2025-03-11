@@ -8,6 +8,10 @@ const Banner = () => {
   return (
     <div className={styles.container}>
       <div className={styles.overlay}></div>
+      {/* <video autoPlay loop muted playsInline className={styles.video}>
+        <source src="/video.MP4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video> */}
       <div className={styles.content}>
         <motion.h2 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2 }}>
           Indulge in Beauty Your Natural Glow with Lenas Skincare

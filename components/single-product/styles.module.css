@@ -5,6 +5,7 @@
     align-items: center;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
     height: auto;
+    width: 416px;
     /* padding-bottom: 32px; */
 }
 
@@ -30,6 +31,7 @@
     flex-direction: column;
     gap: 8px;
     align-items: center;
+    text-align: center;
 }
 
 .title>h3 {
@@ -55,6 +57,10 @@
     font-size: 15px;
     font-weight: 300;
     line-height: 20px;
+}
+
+.price div p:first-child {
+    text-decoration: line-through;
 }
 
 .container .buy {
@@ -89,8 +95,6 @@
         opacity: 0;
     }
 
-
-
     100% {
         opacity: 1;
     }
@@ -98,10 +102,40 @@
 
 @media screen and (max-width: 500px) {
     .container {
+        width: 47%;
+    }
+
+    .image img {
+        width: 100%;
+    }
+
+    .container button {
+        display: block;
+    }
+
+    .title>h3 {
+        font-size: 16px;
+        text-align: center;
+        line-height: 20px;
+    }
+
+    .title p {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 376px) {
+    .container {
         width: 100%;
     }
 
     .image img {
         width: 100%;
     }
+
+    .container button {
+        display: block;
+    }
+
+
 }
