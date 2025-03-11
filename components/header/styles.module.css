@@ -5,17 +5,24 @@
     padding: 24px;
     background-color: white;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 20;
 }
 
 .container nav,
-.container div {
+.action {
     display: flex;
     gap: 8px;
     align-items: center;
 }
 
+.logo div {
+    display: none;
+}
+
 .container nav a,
-.container div a {
+.action a {
     font-size: 16px;
     font-weight: 300;
     line-height: 24px;
@@ -24,16 +31,121 @@
 }
 
 .container nav a:hover,
-.container div a:hover {
+.action a:hover {
     background-color: #ff34a0;
     color: white;
     transition: 1s all ease;
     border-radius: 6px;
 }
 
-.container div a:last-child {
+.action a:last-child {
     background-color: #ff34a0;
     color: white;
     transition: 1s all ease;
     border-radius: 6px;
+}
+
+.none {
+    display: none;
+}
+
+@media screen and (max-width: 500px) {
+
+    .container nav,
+    .action {
+        display: none;
+    }
+
+    .logo {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo img {
+        width: 150px;
+        object-fit: contain;
+    }
+
+    .logo div {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .logo div svg {
+        cursor: pointer;
+    }
+
+    .none {
+        display: flex;
+        position: fixed;
+        flex-direction: column;
+        gap: 24px;
+        right: -500px;
+        transition: 2s all ease;
+    }
+
+    .mobile {
+        right: 0px;
+        height: 100vh;
+        overflow: hidden;
+        background-color: white;
+        z-index: 21;
+        width: 100%;
+        transition: 2s all ease;
+        top: 0;
+        padding: 24px 0px;
+    }
+
+    .head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        border-bottom: 2px solid black;
+        padding: 0px 24px 16px;
+    }
+
+    .nav {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .nav a {
+        padding: 12px 24px;
+        border-bottom: 1px solid black;
+    }
+
+    .mobile>a {
+        width: 100%;
+        background-color: #ff34a0;
+        color: white;
+        transition: 1s all ease;
+        border-radius: 6px;
+        text-align: center;
+        padding: 12px 0px;
+    }
+
+    .socials {
+        width: 100%;
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        padding: 0px 24px;
+    }
+
+    /* .socials a {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff;
+        border: 1px solid #ff34a0;
+    } */
 }

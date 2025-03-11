@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     gap: 32px;
-    align-items: center;
+    /* align-items: center; */
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
     height: auto;
     width: 416px;
@@ -26,12 +26,20 @@
     top: 24px;
 }
 
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
 .title {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    align-items: center;
-    text-align: center;
+    padding: 0px 8px;
+    /* align-items: center; */
+    /* text-align: center; */
 }
 
 .title>h3 {
@@ -49,14 +57,21 @@
 .price {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
     gap: 8px;
+    padding: 0px 8px
 }
 
 .price p {
     font-size: 15px;
     font-weight: 300;
     line-height: 20px;
+}
+
+.price div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 .price div p:first-child {
@@ -72,7 +87,8 @@
     width: 100%;
     height: 100%;
     border: none;
-    background-color: #ff34a0;
+    /* background-color: #ff34a0; */
+    background-color: black;
     color: white;
     cursor: pointer;
     display: none;
@@ -81,10 +97,10 @@
     line-height: 20px;
 }
 
-.container:hover {
+/* .container:hover {
     animation-name: hover;
     animation-duration: 3s;
-}
+} */
 
 .container:hover button {
     display: block;
@@ -102,40 +118,55 @@
 
 @media screen and (max-width: 500px) {
     .container {
-        width: 47%;
-    }
-
-    .image img {
-        width: 100%;
+        width: 48%;
+        height: 550px;
+        justify-content: space-between;
     }
 
     .container button {
         display: block;
     }
 
+
     .title>h3 {
-        font-size: 16px;
-        text-align: center;
+        font-size: 14px;
         line-height: 20px;
     }
 
     .title p {
-        text-align: center;
+        font-size: 12px;
+        line-height: 20px;
+    }
+
+    .image img {
+        width: 100%;
+        object-fit: contain;
+        height: 200px;
+    }
+
+    .price div {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .container .buy {
+        height: unset;
+    }
+
+    .buy button {
+        height: unset;
+        padding: 10px 0px;
     }
 }
 
-@media screen and (max-width: 376px) {
+/* @media screen and (max-width: 376px) {
     .container {
         width: 100%;
     }
 
     .image img {
-        width: 100%;
+        object-fit: cover;
     }
 
-    .container button {
-        display: block;
-    }
-
-
-}
+} */

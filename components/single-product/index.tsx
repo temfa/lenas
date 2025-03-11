@@ -1,8 +1,9 @@
+"use client";
 import React, { FC } from "react";
 import styles from "./styles.module.css";
 import Image from "next/image";
 import { formatter } from "@/utils/helper";
-import CartSvg from "@/svgs/cart";
+import { motion } from "framer-motion";
 
 type Props = {
   image: string;
@@ -15,26 +16,34 @@ type Props = {
 
 const SingleProduct: FC<Props> = ({ image, title, description, size, price, promoPrice }) => {
   return (
-    <div className={styles.container}>
-      <div className={styles.image}>
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      whileHover={{ scale: 1.05, boxShadow: "0px 10px 20px rgba(0,0,0,0.15)" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className={styles.container}>
+      <motion.div className={styles.image}>
         <Image src={image} width={416} height={368} alt="Products" />
-        <CartSvg />
-      </div>
-      <div className={styles.title}>
-        <h3>{title}</h3>
-        <p>{description}</p>
-      </div>
-      <div className={styles.price}>
-        <p>{size}</p>
-        <div>
-          <p>{formatter(price)}</p>
-          <p>{formatter(promoPrice)}</p>
+        {/* <CartSvg /> */}
+      </motion.div>
+      <div className={styles.content}>
+        <div className={styles.title}>
+          <h3>{title}</h3>
+          <p>{description}</p>
+        </div>
+        <div className={styles.price}>
+          <p>{size}</p>
+          <div>
+            <p>{formatter(price)}</p>
+            <p>{formatter(promoPrice)}</p>
+          </div>
         </div>
       </div>
       <div className={styles.buy}>
-        <button>Buy Now</button>
+        <button>Add to Cart</button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

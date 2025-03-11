@@ -57,8 +57,11 @@
     cursor: pointer;
 }
 
+
 @media screen and (max-width: 500px) {
     .container {
         width: 95%;
+        overflow-x: hidden;
     }
+
 }

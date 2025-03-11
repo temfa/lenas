@@ -12,7 +12,7 @@ const HomeAbout = () => {
           muted
           playsInline
           className={styles.video}
-          data-aos="fade-right"
+          data-aos="fade-in"
           data-aos-duration="1000"
           data-aos-easing="ease-in"
           data-aos-mirror="true"
@@ -20,7 +20,7 @@ const HomeAbout = () => {
           <source src="/video.MP4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        <div data-aos="fade-left" data-aos-duration="1000" data-aos-easing="ease-in" data-aos-mirror="true" data-aos-once="false">
+        <div data-aos="fade-in" data-aos-duration="1000" data-aos-easing="ease-in" data-aos-mirror="true" data-aos-once="false">
           <h2>About Us</h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque autem saepe aliquam maxime dignissimos quaerat quidem voluptatem similique quod, molestiae at nesciunt
