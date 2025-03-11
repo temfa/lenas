@@ -1,13 +1,5 @@
 export const products = [
   {
-    title: "Tea Tree & Turmeric Bar Soap",
-    price: 12000,
-    promoPrice: 8400,
-    description: "For hyperpigmentation, problematic skin",
-    size: "",
-    image: "/images/10.webp",
-  },
-  {
     title: "Aloe & Lavender Soothing Toner",
     price: 15500,
     promoPrice: 10850,
@@ -24,12 +16,28 @@ export const products = [
     image: "/images/4.jpeg",
   },
   {
+    title: "Beards Renewal & Restoration oil",
+    price: 15000,
+    promoPrice: 10500,
+    description: "Restores beards shine , Strengthen beards & Treats Ingrown hairs.",
+    size: "50ml",
+    image: "/images/7.jpeg",
+  },
+  {
     title: "NEW Nourish & Flourish collection ",
     price: 75000,
     promoPrice: 52500,
-    description: "A bundle that includes all of the head-to-toe essentials to build and maintain healthy and hydrated skin",
-    size: "1l",
+    description: "A bundle that includes the essentials to build and maintain a healthy & skin",
+    size: "",
     image: "/images/5.jpeg",
+  },
+  {
+    title: "Tea Tree & Turmeric Bar Soap",
+    price: 12000,
+    promoPrice: 8400,
+    description: "For hyperpigmentation, problematic skin",
+    size: "",
+    image: "/images/10.webp",
   },
   {
     title: "Oatmeal Honey Bar Soap",
@@ -39,20 +47,13 @@ export const products = [
     size: "",
     image: "/images/11.webp",
   },
-  {
-    title: "Beards Renewal & Restoration oil",
-    price: 15000,
-    promoPrice: 10500,
-    description: "Restores beards shine , Strengthen beards & Treats Ingrown hairs.",
-    size: "50ml",
-    image: "/images/7.jpeg",
-  },
+
   {
     title: "Beards collection",
     price: 32000,
     promoPrice: 28000,
     description: "Premium kit for a healthier  and fuller beards",
-    size: "1l",
+    size: "",
     image: "/images/9.jpeg",
   },
   {
