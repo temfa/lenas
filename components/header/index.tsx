@@ -26,7 +26,10 @@ const Header = () => {
         <Image src="/images/logo-black.png" width={200} height={60} alt="Logo" />
         <div>
           <Bars action={() => setMobile(true)} />
-          <CartSvg />
+          <Link href="/cart">
+            <CartSvg />
+            {/* <sup>{cartItems.length}</sup> */}
+          </Link>
         </div>
       </div>
       <div className={styles.action}>

@@ -8,7 +8,7 @@ const Banner = () => {
   return (
     <div className={styles.container}>
       <div className={styles.overlay}></div>
-      <video autoPlay loop playsInline className={styles.video}>
+      <video autoPlay loop muted playsInline className={styles.video}>
         <source src="/video3.MP4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
