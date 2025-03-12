@@ -6,8 +6,10 @@ import Footer from "@/components/footer";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 import Ads from "@/components/ads";
-import { Providers } from "@/provider";
+import { Providers } from "@/redux/provider";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -28,6 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${montserrat.variable} `}>
+        <ToastContainer />
         <Providers>
           <Ads />
           <Header />

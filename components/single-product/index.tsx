@@ -4,6 +4,9 @@ import styles from "./styles.module.css";
 import Image from "next/image";
 import { formatter } from "@/utils/helper";
 import { motion } from "framer-motion";
+import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
+import { addtoCart } from "@/redux/slice/cart";
 
 type Props = {
   image: string;
@@ -15,6 +18,22 @@ type Props = {
 };
 
 const SingleProduct: FC<Props> = ({ image, title, description, size, price, promoPrice }) => {
+  const dispatch = useDispatch();
+
+  const addItemCart = () => {
+    const cartDetails = {
+      image,
+      title,
+      description,
+      size,
+      price,
+      promoPrice,
+      count: 1,
+    };
+    dispatch(addtoCart(cartDetails));
+    toast.success("Added to Cart successfully");
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -41,7 +60,7 @@ const SingleProduct: FC<Props> = ({ image, title, description, size, price, prom
         </div>
       </div>
       <div className={styles.buy}>
-        <button>Add to Cart</button>
+        <button onClick={addItemCart}>Add to Cart</button>
       </div>
     </motion.div>
   );

@@ -9,9 +9,12 @@ import Close from "@/svgs/close";
 import InstagramSvg from "@/svgs/instagram";
 import TwitterSvg from "@/svgs/twitter";
 import FacebookSvg from "@/svgs/facebook";
+import { useAppSelector } from "@/redux/store/store";
 
 const Header = () => {
   const [mobile, setMobile] = useState(false);
+
+  const cartItems = useAppSelector((store) => store.cart);
   return (
     <header className={styles.container}>
       <nav>
@@ -28,7 +31,7 @@ const Header = () => {
       </div>
       <div className={styles.action}>
         <Link href="/cart">
-          Cart
+          Cart <sup>{cartItems.length}</sup>
           {/* <CartSvg /> */}
         </Link>
         <Link href="/">Book Reservation</Link>

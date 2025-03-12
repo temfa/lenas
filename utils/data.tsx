@@ -117,4 +117,14 @@ export const products = [
   },
 ];
 
+export type CartType = {
+  image: string;
+  title: string;
+  description: string;
+  size: string;
+  price: number;
+  promoPrice: number;
+  count: number;
+};
+
 // export const

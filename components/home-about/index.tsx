@@ -21,14 +21,12 @@ const HomeAbout = () => {
           Your browser does not support the video tag.
         </video>
         <div data-aos="fade-in" data-aos-duration="1000" data-aos-easing="ease-in" data-aos-mirror="true" data-aos-once="false">
-          <h2>About Us</h2>
+          <h2>OUR MISSION</h2>
+          <p>Naturally for Everyone.</p>
+          <p> At Lena’s organic skincare & Spa , We’re dedicated to providing simple , yet powerful all - natural ingredients and remains sustainable.</p>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque autem saepe aliquam maxime dignissimos quaerat quidem voluptatem similique quod, molestiae at nesciunt
-            facere sint vero esse ad eum debitis est?
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque autem saepe aliquam maxime dignissimos quaerat quidem voluptatem similique quod, molestiae at nesciunt
-            facere sint vero esse ad eum debitis est?
+            We believe in harnessing the potency of herbs and essential oils to create all-natural products that nurture every skin type Inspired by nature, crafted with Love .
+            Experience the transformative power of nature, tailored to your unique skin.
           </p>
           <Link href="/about">View More</Link>
         </div>

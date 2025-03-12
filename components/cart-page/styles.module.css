@@ -1,0 +1,196 @@
+.container {
+    width: 80%;
+    margin: 0px auto;
+    padding: 70px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: flex-end;
+}
+
+.container>h2 {
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    line-height: 70px;
+    font-weight: 700;
+}
+
+.details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header,
+.single {
+    display: flex;
+    width: 100%;
+    padding: 20px 0px;
+    border-bottom: 1px solid rgb(86, 81, 81);
+    align-items: center;
+}
+
+.header p {
+    font-size: 16px;
+    line-height: 30px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.header p:first-child,
+.title {
+    width: 40%;
+}
+
+.header p:nth-child(3),
+.quantity {
+    width: 30%;
+}
+
+.header p:nth-child(2),
+.header p:nth-child(4),
+.single>p {
+    width: 15%;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.title div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.title div h2 {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+}
+
+.title div p {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.title div p:last-child {
+    display: none;
+}
+
+.single>p {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.quantity p {
+    font-size: 24px;
+    font-weight: 500;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.total {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 64px;
+}
+
+.total div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.total div p {
+    font-size: 20px;
+    line-height: 32px;
+    font-weight: 500;
+}
+
+.total div h4 {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+}
+
+.total button {
+    width: 300px;
+    padding: 12px 0px;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+@media screen and (max-width: 500px) {
+    .container {
+        width: 95%;
+        padding: 20px 0px;
+    }
+
+    .container>h2 {
+        font-size: 28px;
+        line-height: 32px;
+    }
+
+    .header,
+    .single>p {
+        display: none;
+    }
+
+    .single {
+        justify-content: space-between;
+    }
+
+    .title div p:last-child {
+        display: block;
+    }
+
+    .title {
+        width: 70%;
+    }
+
+    .title div h2 {
+        font-size: 14px;
+    }
+
+    .quantity {
+        width: 25%;
+    }
+
+    .quantity p {
+        width: 30px;
+        height: 30px;
+    }
+
+    .total,
+    .total button {
+        width: 100%;
+    }
+}
