@@ -137,8 +137,9 @@
     font-weight: 400;
 }
 
-.total button {
+.total a {
     width: 300px;
+    text-align: center;
     padding: 12px 0px;
     background-color: black;
     color: white;
@@ -190,7 +191,7 @@
     }
 
     .total,
-    .total button {
+    .total a {
         width: 100%;
     }
 }

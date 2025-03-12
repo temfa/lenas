@@ -4,8 +4,9 @@ import styles from "./styles.module.css";
 import { useAppSelector } from "@/redux/store/store";
 import Image from "next/image";
 import { formatter } from "@/utils/helper";
-import { addtoCart, reducetoCart } from "@/redux/slice/cart";
+import { addtoCart, reducetoCart, removeFromCart } from "@/redux/slice/cart";
 import { useDispatch } from "react-redux";
+import Link from "next/link";
 
 const CartPage = () => {
   const cartItems = useAppSelector((store) => store.cart);
@@ -37,7 +38,8 @@ const CartPage = () => {
                 <div className={styles.quantity}>
                   <p
                     onClick={() => {
-                      if (item.count !== 1) dispatch(reducetoCart(item));
+                      if (item.count === 1) dispatch(removeFromCart(item));
+                      else dispatch(reducetoCart(item));
                     }}>
                     -
                   </p>
@@ -60,7 +62,7 @@ const CartPage = () => {
           <h4>Total</h4>
           <p>{formatter(total)}</p>
         </div>
-        <button>Checkout</button>
+        <Link href="/checkout">Checkout</Link>
       </div>
     </div>
   );
