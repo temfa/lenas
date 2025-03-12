@@ -11,7 +11,7 @@ export default function Home() {
     <>
       <Banner />
       <HomeAbout />
-      <HomeProducts data={products?.slice(0, 3)} page />
+      <HomeProducts data={products?.slice(0, 6)} page />
       <Quote />
       <Testimonials />
       <video

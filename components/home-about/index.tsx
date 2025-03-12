@@ -6,6 +6,15 @@ import Image from "next/image";
 const HomeAbout = () => {
   return (
     <div className={styles.container}>
+      <div className={styles.natural}>
+        <h2>Always Natural. Always Handmade.</h2>
+        <div className={styles.body}>
+          <Image src="/images/plant.webp" width={150} height={150} alt="Plant" />
+          <Image src="/images/oil.webp" width={150} height={150} alt="Plant" />
+          <Image src="/images/free.webp" width={150} height={150} alt="Plant" />
+          <Image src="/images/small.webp" width={150} height={150} alt="Plant" />
+        </div>
+      </div>
       <div className={styles.wrapper}>
         {/* <video
           autoPlay
