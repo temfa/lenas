@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Montserrat, Dancing_Script } from "next/font/google";
+import { Montserrat, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
@@ -10,6 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import Ads from "@/components/ads";
 import { Providers } from "@/redux/provider";
+import CartModal from "@/components/cart-modal";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -17,7 +18,7 @@ const montserrat = Montserrat({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
-const playfair = Dancing_Script({
+const playfair = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -42,6 +43,7 @@ export default function RootLayout({
           <Header />
           {children}
           <Footer />
+          <CartModal />
         </Providers>
       </body>
     </html>

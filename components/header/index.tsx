@@ -10,8 +10,11 @@ import InstagramSvg from "@/svgs/instagram";
 import TwitterSvg from "@/svgs/twitter";
 import FacebookSvg from "@/svgs/facebook";
 import { useAppSelector } from "@/redux/store/store";
+import { setCartOpen } from "@/redux/slice/cartOpen";
+import { useDispatch } from "react-redux";
 
 const Header = () => {
+  const dispatch = useDispatch();
   const [mobile, setMobile] = useState(false);
 
   const cartItems = useAppSelector((store) => store.cart);
@@ -26,17 +29,17 @@ const Header = () => {
         <Image src="/images/logo-black.png" width={200} height={60} alt="Logo" />
         <div>
           <Bars action={() => setMobile(true)} />
-          <Link href="/cart">
+          <div onClick={() => dispatch(setCartOpen(true))}>
             <CartSvg />
             {/* <sup>{cartItems.length}</sup> */}
-          </Link>
+          </div>
         </div>
       </div>
       <div className={styles.action}>
-        <Link href="/cart">
+        <p onClick={() => dispatch(setCartOpen(true))}>
           Cart <sup>{cartItems.length}</sup>
           {/* <CartSvg /> */}
-        </Link>
+        </p>
         <Link href="/">Book Reservation</Link>
       </div>
       <div className={mobile ? `${styles.mobile} ${styles.none}` : styles.none}>

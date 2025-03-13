@@ -22,16 +22,19 @@
 }
 
 .container nav a,
-.action a {
+.action a,
+.action p {
     font-size: 16px;
     font-weight: 300;
     line-height: 24px;
     transition: 0.5s all ease;
     padding: 10px 12px;
+    cursor: pointer;
 }
 
 .container nav a:hover,
-.action a:hover {
+.action a:hover,
+.action p:hover {
     background-color: #ff34a0;
     color: white;
     transition: 0.5s all ease;

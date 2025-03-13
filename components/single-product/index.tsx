@@ -5,8 +5,8 @@ import Image from "next/image";
 import { formatter } from "@/utils/helper";
 import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
-import { toast } from "react-toastify";
 import { addtoCart } from "@/redux/slice/cart";
+import { setCartOpen } from "@/redux/slice/cartOpen";
 
 type Props = {
   image: string;
@@ -31,7 +31,8 @@ const SingleProduct: FC<Props> = ({ image, title, description, size, price, prom
       count: 1,
     };
     dispatch(addtoCart(cartDetails));
-    toast.success("Added to Cart successfully");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    dispatch(setCartOpen(true));
   };
 
   return (

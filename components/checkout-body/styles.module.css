@@ -82,13 +82,23 @@
 .products {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 24px;
 }
 
 .single {
     display: flex;
     align-items: center;
     gap: 20px;
+    border-bottom: 0.3px solid black;
+    padding-bottom: 24px;
+}
+
+.single:last-child {
+    border-bottom: 0px;
+}
+
+.single img {
+    object-fit: contain;
 }
 
 .single div {

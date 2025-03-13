@@ -19,7 +19,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <Provider store={store}>
       <PersistGate loading={<Loading />} persistor={persistor}>
-        {children}
+        <div className="new-body">{children}</div>
       </PersistGate>
     </Provider>
   );
