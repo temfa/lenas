@@ -150,13 +150,37 @@
     border-radius: 6px;
 }
 
+.bill {
+    display: none;
+}
+
+
 @media screen and (max-width:500px) {
     .container {
         flex-direction: column;
+        width: 95%;
     }
 
     .left,
-    .right {
+    .right,
+    .pickups {
         width: 100%;
+    }
+
+    .subTotal h3 {
+        font-size: 16px;
+    }
+
+    .subTotal p {
+        font-size: 14px;
+    }
+
+    .left button {
+        display: none;
+    }
+
+
+    .bill {
+        display: block;
     }
 }

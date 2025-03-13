@@ -45,6 +45,7 @@ const CheckoutBody = () => {
     else {
       setPage("Shipping");
       setEmail(e.email);
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
@@ -204,7 +205,12 @@ const CheckoutBody = () => {
           <h3>Total</h3>
           <p>{formatter(total + pickup)}</p>
         </div>
-        {page === "Shipping" && <PaystackButton {...componentProps} />}
+        {page === "Shipping" && pickupMethod === "Ship" && pickup != 0 && <PaystackButton {...componentProps} />}
+        {page === "Billing" && (
+          <button type="submit" className={styles.bill}>
+            Continue to Shipping
+          </button>
+        )}
       </div>
     </form>
   );
