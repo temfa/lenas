@@ -32,7 +32,7 @@ const HomeAbout = () => {
         </video> */}
         <Image src="/images/8.jpeg" width={500} height={500} alt="About" />
         <div data-aos="fade-in" data-aos-duration="1000" data-aos-easing="ease-in" data-aos-mirror="true" data-aos-once="false">
-          <h2>OUR MISSION</h2>
+          <h1>OUR MISSION</h1>
           <p>Naturally for Everyone.</p>
           <p> At Lena’s organic skincare & Spa , We’re dedicated to providing simple , yet powerful all - natural ingredients and remains sustainable.</p>
           <p>

@@ -45,6 +45,30 @@
     border-bottom: 1px solid black;
 }
 
+.pickups {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 6px;
+    padding: 24px;
+    width: 60%;
+}
+
+.pickupSingle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0px;
+}
+
+.pickupSingle div {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
 .right {
     width: 500px;
     border: 1px solid black;
@@ -86,7 +110,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: 1px solid black;
+    /* border-top: 1px solid black; */
     border-bottom: 1px solid black;
 }
 
@@ -115,6 +139,7 @@
     gap: 8px;
 }
 
+.left button,
 .right button {
     padding: 12px 0px;
     background-color: black;

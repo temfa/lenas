@@ -36,7 +36,7 @@
     gap: 16px;
 }
 
-.content h2 {
+.content h1:first-child {
     font-size: 60px;
     font-weight: 700;
     line-height: 72px;
@@ -70,8 +70,8 @@
         padding: 0px 32px;
     }
 
-    .content h2 {
-        font-size: 32px;
-        line-height: 48px;
+    .content h1 {
+        font-size: 48px;
+        line-height: 64px;
     }
 }
