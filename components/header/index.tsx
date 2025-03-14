@@ -37,7 +37,7 @@ const Header = () => {
       </div>
       <div className={styles.action}>
         <p onClick={() => dispatch(setCartOpen(true))}>
-          Cart <sup>{cartItems.length}</sup>
+          Cart {cartItems.length !== 0 && <sup>{cartItems.length}</sup>}
           {/* <CartSvg /> */}
         </p>
         <Link href="/">Book Reservation</Link>
