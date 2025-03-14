@@ -26,7 +26,9 @@ const Header = () => {
         <Link href="/contact">Contact</Link>
       </nav>
       <div className={styles.logo}>
-        <Image src="/images/logo-black.png" width={200} height={60} alt="Logo" />
+        <Link href="/">
+          <Image src="/images/logo-black.png" width={200} height={60} alt="Logo" />
+        </Link>
         <div>
           <Bars action={() => setMobile(true)} />
           <div onClick={() => dispatch(setCartOpen(true))}>
