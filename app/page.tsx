@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <Banner />
-      <HomeAbout />
+      <HomeAbout page="Home" />
       <HomeProducts data={products?.slice(0, 6)} page />
       <Quote />
       <Testimonials />

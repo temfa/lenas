@@ -1,11 +1,13 @@
 import HomeAbout from "@/components/home-about";
 import React from "react";
 import styles from "../page.module.css";
+import AboutBody from "@/components/about-body";
 
 const About = () => {
   return (
     <>
-      <HomeAbout />
+      <AboutBody />
+      <HomeAbout page="About" />
       <video
         autoPlay
         loop
