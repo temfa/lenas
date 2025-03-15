@@ -5,6 +5,7 @@ import Quote from "@/components/quote";
 import Testimonials from "@/components/testimonials";
 import { products } from "@/utils/data";
 import styles from "./page.module.css";
+import Also from "@/components/also";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <HomeProducts data={products?.slice(0, 6)} page />
       <Quote />
       <Testimonials />
+      <Also />
       <video
         autoPlay
         loop

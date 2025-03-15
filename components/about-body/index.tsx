@@ -26,7 +26,7 @@ const AboutBody = () => {
             <p>Welcome to Lena&apos;s Organic Skincare & spa , Your Trusted Skincare Partner.</p>
             <p>
               At Lenas Organic Skincare , we&apos;re passionate about helping you achieve healthy, glowing skin. As an amazing skincare formulator in Africa, we&apos;ve been
-              perfecting our craft for ober 6 years, delivering high-quality, effective products that cater to diverse skin types and concerns.
+              perfecting our craft for over 6 years, delivering high-quality, effective products that cater to diverse skin types and concerns.
             </p>
           </div>
           <div>
@@ -67,24 +67,26 @@ const AboutBody = () => {
           discover our products, and let us work together to unlock your skin&apos;s full potential.
         </p>
         <p>
-          Contact us :
+          Contact us :{" "}
           <span>
-            <Link href="" target="_blank">
+            <Link href="mailto:Lenasorganicskincare@gmail.com" target="_blank">
               Lenasorganicskincare@gmail.com
             </Link>
-          </span>
-          or
+          </span>{" "}
+          or{" "}
           <span>
-            <Link href="" target="_blank">
+            <Link href="tel:2348140137649" target="_blank">
               +2348140137649
             </Link>
           </span>
         </p>
         <p>
           Follow us :{" "}
-          <Link href="" target="_blank">
-            @lenasorganicskincare
-          </Link>{" "}
+          <span>
+            <Link href="https://www.instagram.com/lenas_organicskincare?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+              @lenasorganicskincare
+            </Link>{" "}
+          </span>
         </p>
       </div>
     </div>

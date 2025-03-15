@@ -1,14 +1,32 @@
 "use client";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "./styles.module.css";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
 const Banner = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const startTime = 100;
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      const handleMetadata = () => {
+        video.currentTime = startTime;
+        video.play();
+      };
+
+      video.addEventListener("loadedmetadata", handleMetadata);
+
+      return () => {
+        video.removeEventListener("loadedmetadata", handleMetadata);
+      };
+    }
+  }, [startTime]);
   return (
     <div className={styles.container}>
       <div className={styles.overlay}></div>
-      <video autoPlay loop muted playsInline className={styles.video}>
+      <video autoPlay loop muted playsInline className={styles.video} ref={videoRef}>
         <source src="/video.MP4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>

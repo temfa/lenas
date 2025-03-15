@@ -11,7 +11,8 @@ export const products = [
     title: "Three in one Scrub, oil and Soap",
     price: 39500,
     promoPrice: 29000,
-    description: "Formulated to erase dark spots, hyperpigmentation, and acne scars, revealing a brighter, smoother, and more radiant skin",
+    description: "Formulated to erase dark spots, hyperpigmentation, and acne scars.",
+    // revealing a brighter, smoother, and more radiant skin",
     size: "",
     image: "/images/2.jpeg",
   },
@@ -40,14 +41,7 @@ export const products = [
     size: "30ml",
     image: "/images/14.JPG",
   },
-  {
-    title: "Radiant Elixir body",
-    price: 25000,
-    promoPrice: 15400,
-    description: "Clears all hyperpigmentation on the skin , reduces the appearance of superficial veins, brightens the skin evenly , and clears stubborn scars",
-    size: "150ml",
-    image: "/images/15.JPG",
-  },
+
   {
     title: "Tea Tree & Turmeric Bar Soap",
     price: 12000,
@@ -55,14 +49,6 @@ export const products = [
     description: "For hyperpigmentation, problematic skin",
     size: "",
     image: "/images/10.webp",
-  },
-  {
-    title: "Oatmeal Honey Bar Soap",
-    price: 12000,
-    promoPrice: 8400,
-    description: "For dry, sensitive, irritated, itchy skin",
-    size: "",
-    image: "/images/11.webp",
   },
 
   {
@@ -81,7 +67,14 @@ export const products = [
     size: "",
     image: "/images/12.webp",
   },
-
+  {
+    title: "Oatmeal Honey Bar Soap",
+    price: 12000,
+    promoPrice: 8400,
+    description: "For dry, sensitive, irritated, itchy skin",
+    size: "",
+    image: "/images/11.webp",
+  },
   {
     title: "Chamomile & Calendula Bar Soap",
     price: 12000,
@@ -129,6 +122,14 @@ export const products = [
     description: "for normal, all skin types, yoni",
     size: "",
     image: "/images/17.webp",
+  },
+  {
+    title: "Radiant Elixir body",
+    price: 25000,
+    promoPrice: 15400,
+    description: "Clears all hyperpigmentation on the skin , reduces the appearance of superficial veins, brightens the skin evenly , and clears stubborn scars",
+    size: "150ml",
+    image: "/images/15.JPG",
   },
   {
     title: "Treatment Beards wash",
