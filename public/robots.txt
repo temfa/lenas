@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: http://lenasorganicskincare.com
+
+# Sitemaps
+Sitemap: http://lenasorganicskincare.com/sitemap.xml
