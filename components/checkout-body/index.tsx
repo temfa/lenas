@@ -173,12 +173,14 @@ const CheckoutBody = () => {
           {cartItems?.map((product, index) => {
             return (
               <div key={index} className={styles.single}>
-                <Image src={product.image} width={80} height={80} alt="Products" />
                 <div>
-                  <p>{product?.title}</p>
-                  <p>{formatter(product?.promoPrice)}</p>
-                  <p>QTY: {product?.count}</p>
+                  <Image src={product.image} width={100} height={100} alt="Products" />
+                  <p>
+                    {product?.title} ({product?.count})
+                  </p>
                 </div>
+                <p>{formatter(product?.promoPrice)} </p>
+                {/* <p>QTY: {product?.count}</p> */}
               </div>
             );
           })}
