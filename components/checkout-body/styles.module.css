@@ -172,6 +172,10 @@
         width: 95%;
     }
 
+    .single p {
+        font-size: 12px
+    }
+
     .left,
     .right,
     .pickups {
