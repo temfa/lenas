@@ -51,7 +51,7 @@ const CheckoutBody = () => {
     }
   };
 
-  const publicKey = "pk_test_7fb90bd8aa7b5f58930828f02a247d2a950ad4d2";
+  const publicKey = "pk_live_b99a01c0e6a9702b38a82ab273bfe84ecff44249";
 
   const componentProps = {
     email,
