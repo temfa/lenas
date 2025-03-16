@@ -31,7 +31,9 @@ const SingleProduct: FC<Props> = ({ image, title, description, size, price, prom
       count: 1,
     };
     dispatch(addtoCart(cartDetails));
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
     dispatch(setCartOpen(true));
   };
 
