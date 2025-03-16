@@ -4,9 +4,9 @@ import React from "react";
 
 const AllProducts = () => {
   return (
-    <>
+    <main>
       <HomeProducts data={products} page={false} />
-    </>
+    </main>
   );
 };
 

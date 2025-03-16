@@ -5,7 +5,7 @@ import AboutBody from "@/components/about-body";
 
 const About = () => {
   return (
-    <>
+    <main>
       <AboutBody />
       <HomeAbout page="About" />
       <video
@@ -22,7 +22,7 @@ const About = () => {
         <source src="/video2.MP4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-    </>
+    </main>
   );
 };
 

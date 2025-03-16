@@ -9,7 +9,7 @@ import Also from "@/components/also";
 
 export default function Home() {
   return (
-    <>
+    <main>
       <Banner />
       <HomeAbout page="Home" />
       <HomeProducts data={products?.slice(0, 6)} page />
@@ -30,6 +30,6 @@ export default function Home() {
         <source src="/video2.MP4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-    </>
+    </main>
   );
 }

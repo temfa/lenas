@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Contact = () => {
   return (
-    <div className={styles.container}>
+    <main className={styles.container}>
       <h2>Contact</h2>
       <p>
         If you need to contact us, you can do so by: <br /> 💬 writing to us on Instagram{" "}
@@ -23,7 +23,7 @@ const Contact = () => {
         <br /> We will respond as soon as possible, within the next 24/48 working hours. <br /> Customer Service is available Monday to Sunday, from 9:00 AM to 6:00 PM CET
         (excluding holidays).
       </p>
-    </div>
+    </main>
   );
 };
 
