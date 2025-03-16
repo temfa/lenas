@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useAppSelector } from "@/redux/store/store";
@@ -39,6 +39,11 @@ const CheckoutBody = () => {
   const [pickupMethod, setPickupMethod] = useState("");
   const [page, setPage] = useState("Billing");
   const [email, setEmail] = useState("");
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const submit: SubmitHandler<FormProps> = (e) => {
     if (pickupMethod === "") toast.error("Pick a shipping method");
@@ -48,6 +53,9 @@ const CheckoutBody = () => {
       // if (typeof window !== "undefined") {
       //   window.scrollTo({ top: 0, behavior: "smooth" });
       // }
+      if (isClient) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
     }
   };
 

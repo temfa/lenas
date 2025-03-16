@@ -1,5 +1,5 @@
 "use client";
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import styles from "./styles.module.css";
 import Image from "next/image";
 import { formatter } from "@/utils/helper";
@@ -19,6 +19,11 @@ type Props = {
 
 const SingleProduct: FC<Props> = ({ image, title, description, size, price, promoPrice }) => {
   const dispatch = useDispatch();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const addItemCart = () => {
     const cartDetails = {
@@ -31,9 +36,9 @@ const SingleProduct: FC<Props> = ({ image, title, description, size, price, prom
       count: 1,
     };
     dispatch(addtoCart(cartDetails));
-    // if (typeof window !== "undefined") {
-    //   window.scrollTo({ top: 0, behavior: "smooth" });
-    // }
+    if (isClient) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
     dispatch(setCartOpen(true));
   };
 
