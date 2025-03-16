@@ -16,7 +16,7 @@ const HomeAbout: FC<Props> = ({ page }) => {
           <Image src="/images/plant.webp" width={150} height={200} alt="Plant" />
           <Image src="/images/oil.webp" width={150} height={200} alt="Plant" />
           <Image src="/images/free.webp" width={150} height={200} alt="Plant" />
-          <Image src="/images/small.webp" width={150} height={200} alt="Plant" />
+          {/* <Image src="/images/small.webp" width={150} height={200} alt="Plant" /> */}
         </div>
       </div>
       <div className={styles.wrapper}>
