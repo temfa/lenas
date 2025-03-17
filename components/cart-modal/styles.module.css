@@ -179,6 +179,8 @@
     .open {
         width: 100vw;
         right: 0;
+        height: 95vh;
+        overflow-y: scroll;
     }
 
     .details h3 {
