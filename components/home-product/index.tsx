@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import styles from "./styles.module.css";
-import SingleProduct from "../single-product";
 import Link from "next/link";
 import ArrowRight from "@/svgs/arrow-right";
+import dynamic from "next/dynamic";
 
 type Props = {
   data: {
@@ -16,6 +16,7 @@ type Props = {
   page: boolean;
 };
 
+const SingleProduct = dynamic(() => import("../single-product"), { ssr: false });
 const HomeProducts: FC<Props> = ({ data, page }) => {
   return (
     <div className={styles.container}>
