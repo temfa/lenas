@@ -42,6 +42,7 @@ const CheckoutBody = () => {
   const [pickupMethod, setPickupMethod] = useState("");
   const [page, setPage] = useState("Billing");
   const [email, setEmail] = useState("");
+  const [type, setType] = useState("");
   // const [name, setName] = useState("");
   // const [phoneNumber, setPhoneNumber] = useState("");
   const found = cartItems?.find((element) => element.title === "Niacinamide hydrating mask");
@@ -157,7 +158,7 @@ const CheckoutBody = () => {
                 </div>
                 <div className={styles.pickupSingle}>
                   <div>
-                    <input type="radio" name="pickup" onChange={() => {}} />
+                    <input type="radio" name="pickup" onChange={() => setType("International")} />
                     <span>International Delivery(DHL or UPS) </span>
                   </div>
                   <p>Depends on the weight of the products</p>
@@ -300,6 +301,7 @@ const CheckoutBody = () => {
           <p>{formatter(total + pickup)}</p>
         </div>
         {page === "Shipping" && pickupMethod === "Ship" && pickup != 0 && <PaystackButton {...componentProps} />}
+        {page === "Shipping" && pickupMethod === "Ship" && type === "International" && <PaystackButton {...componentProps} />}
         {page === "Billing" && (
           <button type="submit" className={styles.bill}>
             Continue to Shipping

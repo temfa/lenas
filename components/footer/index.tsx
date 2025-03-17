@@ -12,7 +12,7 @@ const Footer = () => {
           <h2>Services</h2>
           <div>
             <Link href="/products">Products</Link>
-            <Link href="/spa">Spa</Link>
+            <Link href="/#">Spa</Link>
           </div>
         </div>
         <div className={styles.single}>
@@ -20,8 +20,8 @@ const Footer = () => {
           <div>
             <Link href="/about">About Us</Link>
             <Link href="/contact">Contact Us</Link>
-            <Link href="/privacy">Privacy Policy</Link>
-            <Link href="/terms">Terms and Condition</Link>
+            <Link href="/#">Privacy Policy</Link>
+            <Link href="/#">Terms and Condition</Link>
           </div>
         </div>
         <div className={styles.single}>
