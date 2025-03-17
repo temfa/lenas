@@ -197,6 +197,38 @@ export const products = [
     size: "",
     image: "/images/20.jpg",
   },
+  {
+    title: "Nourish & Flourish Soothing suds",
+    price: 25000,
+    promoPrice: 18500,
+    description: "Nourish your glow with Our gentle, moisturizing suds cleanse and soften your skin, revealing a brighter, healthier complexion",
+    size: "500ml",
+    image: "/images/22.jpg",
+  },
+  {
+    title: "Jasmine & Oat Balancing Body Polish",
+    price: 12000,
+    promoPrice: 8000,
+    description: "Reduces the appearance of cellulite, leaving skin looking smoother and more even-toned. For all skin type",
+    size: "250ml",
+    image: "/images/23.jpg",
+  },
+  // {
+  //   title: "Hydra Glow Collagen Face Cream",
+  //   price: 5000,
+  //   promoPrice: 3000,
+  //   description: "For facial hydration",
+  //   size: "",
+  //   image: "/images/24.jpg",
+  // },
+  {
+    title: "White body lotion",
+    price: 22000,
+    promoPrice: 14500,
+    description: "For a fairer skin tone",
+    size: "250ml",
+    image: "/images/27.jpg",
+  },
 ];
 
 export type CartType = {
