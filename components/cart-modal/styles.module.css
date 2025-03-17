@@ -20,7 +20,8 @@
     right: 0;
     transition: 0.5s all ease;
     height: 100vh;
-    overflow: scroll;
+    overflow: hidden;
+    overflow-y: auto;
     background-color: white;
     padding: 24px 0px;
     display: flex;
@@ -171,7 +172,14 @@
 
 @media screen and (max-width:500px) {
     .container {
-        width: 100%;
+        width: 100vw;
+        right: -100vw;
+    }
+
+    .open {
+        min-height: 100vh;
+        width: 100vw;
+        right: 0;
     }
 
     .details h3 {
