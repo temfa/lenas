@@ -20,6 +20,73 @@
     line-height: 32px;
 }
 
+.new {
+    display: flex;
+    justify-content: space-between;
+    padding: 32px 24px;
+    background-color: aliceblue;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.new button {
+    padding: 12px 0px;
+    background-color: black;
+    color: white;
+    font-size: 14px;
+    border: 0px;
+    font-weight: 400;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.new h4 {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 24px;
+}
+
+.single:last-child {
+    border-bottom: 0px;
+}
+
+.lefts {
+    display: flex;
+    gap: 16px;
+    width: 80%;
+    align-items: center;
+}
+
+.lefts img {
+    object-fit: contain;
+}
+
+.detailse {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.detailse h3 {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.detailse div {
+    display: flex;
+    align-items: center;
+    width: 100px;
+    justify-content: space-between;
+    padding: 4px 16px;
+    border: 0.1px solid black;
+}
+
+.detailse div p {
+    cursor: pointer;
+    font-size: 20px;
+}
+
 .group {
     display: flex;
     flex-direction: column;

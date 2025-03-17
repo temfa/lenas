@@ -9,7 +9,7 @@ import { formatter } from "@/utils/helper";
 import { toast } from "react-toastify";
 import { location } from "@/utils/data";
 import { useDispatch } from "react-redux";
-import { clearCart } from "@/redux/slice/cart";
+import { addtoCart, clearCart } from "@/redux/slice/cart";
 import { PaystackButton } from "react-paystack";
 
 // import { closePaymentModal, useFlutterwave } from "flutterwave-react-v3";
@@ -45,6 +45,7 @@ const CheckoutBody = () => {
   // const [name, setName] = useState("");
   // const [phoneNumber, setPhoneNumber] = useState("");
   const [isClient, setIsClient] = useState(false);
+  const found = cartItems?.find((element) => element.title === "Niacinamide hydrating mask");
 
   useEffect(() => {
     setIsClient(true);
@@ -174,6 +175,37 @@ const CheckoutBody = () => {
           </div>
         ) : (
           <>
+            {!found && (
+              <div className={styles.new}>
+                <h4>Complete the routine!</h4>
+                <div className={styles.lefts}>
+                  <Image src="/images/21.jpg" width={150} height={150} alt="Product" />
+                  <div className={styles.detailse}>
+                    <h3>Niacinamide hydrating mask</h3>
+                    <p>{formatter(3000)}</p>
+                    <button
+                      onClick={() => {
+                        const cartDetails = {
+                          image: "/images/21.jpg",
+                          title: "Niacinamide hydrating mask",
+                          description: "For reduction of facial inflammation",
+                          size: "",
+                          price: 5000,
+                          promoPrice: 3000,
+                          count: 1,
+                        };
+                        dispatch(addtoCart(cartDetails));
+                      }}>
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+                {/* <div className={styles.right}>
+                <Close action={() => dispatch(removeFromCart(item))} />
+                <p>{formatter(item.promoPrice * item.count)}</p>
+              </div> */}
+              </div>
+            )}
             <div className={styles.group}>
               <label htmlFor="fname">First Name</label>
               <input type="text" {...register("fname", { required: "First Name is required" })} />

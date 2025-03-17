@@ -28,6 +28,9 @@ const CartModal = () => {
       document.body.style.overflow = ""; // Cleanup when unmounted
     };
   }, [isCartOpen]);
+
+  const found = cartItems?.find((element) => element.title === "Niacinamide hydrating mask");
+
   return (
     <div className={isCartOpen ? styles.overlay : ""}>
       <div className={isCartOpen ? `${styles.open} ${styles.container}` : styles.container}>
@@ -63,6 +66,37 @@ const CartModal = () => {
                 </div>
               );
             })}
+            {!found && (
+              <div className={styles.new}>
+                <h4>Complete the routine!</h4>
+                <div className={styles.left}>
+                  <Image src="/images/21.jpg" width={100} height={100} alt="Product" />
+                  <div className={styles.details}>
+                    <h3>Niacinamide hydrating mask</h3>
+                    <p>{formatter(3000)}</p>
+                    <button
+                      onClick={() => {
+                        const cartDetails = {
+                          image: "/images/21.jpg",
+                          title: "Niacinamide hydrating mask",
+                          description: "For reduction of facial inflammation",
+                          size: "",
+                          price: 5000,
+                          promoPrice: 3000,
+                          count: 1,
+                        };
+                        dispatch(addtoCart(cartDetails));
+                      }}>
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+                {/* <div className={styles.right}>
+                <Close action={() => dispatch(removeFromCart(item))} />
+                <p>{formatter(item.promoPrice * item.count)}</p>
+              </div> */}
+              </div>
+            )}
           </div>
           <div className={styles.subTotal}>
             <h3>Subtotal</h3>
