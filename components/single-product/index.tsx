@@ -37,7 +37,7 @@ const SingleProduct: FC<Props> = ({ image, title, description, size, price, prom
     };
     dispatch(addtoCart(cartDetails));
     if (isClient) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      // window.scrollTo({ top: 0, behavior: "smooth" });
     }
     dispatch(setCartOpen(true));
   };

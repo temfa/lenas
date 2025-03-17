@@ -83,7 +83,7 @@ const CheckoutBody = () => {
       //   window.scrollTo({ top: 0, behavior: "smooth" });
       // }
       if (isClient) {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        //   window.scrollTo({ top: 0, behavior: "smooth" });
       }
     }
   };
