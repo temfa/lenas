@@ -181,6 +181,22 @@ export const products = [
     size: "150ml",
     image: "/images/18.jpg",
   },
+  {
+    title: "Niacinamide hydrating mask",
+    price: 5000,
+    promoPrice: 3000,
+    description: "For reduction of facial inflammation",
+    size: "",
+    image: "/images/21.jpg",
+  },
+  {
+    title: "Green tea Refreshing silky mask",
+    price: 5000,
+    promoPrice: 3000,
+    description: "For facial hydration",
+    size: "",
+    image: "/images/20.jpg",
+  },
 ];
 
 export type CartType = {

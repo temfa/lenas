@@ -10,7 +10,10 @@ import { toast } from "react-toastify";
 import { location } from "@/utils/data";
 import { useDispatch } from "react-redux";
 import { clearCart } from "@/redux/slice/cart";
-import { PaystackButton } from "react-paystack";
+// import { PaystackButton } from "react-paystack";
+
+import { closePaymentModal, useFlutterwave } from "flutterwave-react-v3";
+import { FlutterwaveConfig } from "flutterwave-react-v3/dist/types";
 
 type FormProps = {
   fname: string;
@@ -39,17 +42,42 @@ const CheckoutBody = () => {
   const [pickupMethod, setPickupMethod] = useState("");
   const [page, setPage] = useState("Billing");
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
   }, []);
 
+  const config: FlutterwaveConfig = {
+    public_key: "FLWPUBK--X",
+    // public_key: "FLWPUBK_TEST-ff2ac3f21bc90680e45d6898aa2a7a07-X",
+    tx_ref: Date.now().toString(),
+    amount: total + pickup,
+    currency: "NGN",
+    payment_options: "card,mobilemoney,ussd",
+    customer: {
+      email: email,
+      phone_number: phoneNumber,
+      name: name,
+    },
+    customizations: {
+      title: "",
+      description: "",
+      logo: "",
+    },
+  };
+
+  const handleFlutterPayment = useFlutterwave(config);
+
   const submit: SubmitHandler<FormProps> = (e) => {
     if (pickupMethod === "") toast.error("Pick a shipping method");
     else {
       setPage("Shipping");
       setEmail(e.email);
+      setName(`${e.lname} ${e.lname}`);
+      setPhoneNumber(e.phone);
       // if (typeof window !== "undefined") {
       //   window.scrollTo({ top: 0, behavior: "smooth" });
       // }
@@ -59,28 +87,45 @@ const CheckoutBody = () => {
     }
   };
 
-  const publicKey = "pk_live_b99a01c0e6a9702b38a82ab273bfe84ecff44249";
-
-  const componentProps = {
-    email,
-
-    amount: (total + pickup) * 100,
-
-    publicKey,
-
-    text: "Place Order",
-
-    onSuccess: () => {
-      toast.success("Payment successful");
-      reset();
-      dispatch(clearCart());
-      setPage("Billing");
-      setPickup(0);
-    },
-    onCancel: () => {
-      toast.error("Payment cancelled");
-    },
+  const makePayment = () => {
+    handleFlutterPayment({
+      callback: () => {
+        closePaymentModal(); // this will close the modal programmatically
+        toast.success("Payment successful");
+        reset();
+        dispatch(clearCart());
+        setPage("Billing");
+        setPickup(0);
+      },
+      onClose: () => {
+        // dispatch(clearOrder());
+        toast.error("Payment Cancelled");
+      },
+    });
   };
+
+  // const publicKey = "pk_live_b99a01c0e6a9702b38a82ab273bfe84ecff44249";
+
+  // const componentProps = {
+  //   email,
+
+  //   amount: (total + pickup) * 100,
+
+  //   publicKey,
+
+  //   text: "Place Order",
+
+  //   onSuccess: () => {
+  //     toast.success("Payment successful");
+  //     reset();
+  //     dispatch(clearCart());
+  //     setPage("Billing");
+  //     setPickup(0);
+  //   },
+  //   onCancel: () => {
+  //     toast.error("Payment cancelled");
+  //   },
+  // };
 
   return (
     <form className={styles.container} onSubmit={handleSubmit(submit)}>
@@ -107,9 +152,16 @@ const CheckoutBody = () => {
                 <div className={styles.pickupSingle}>
                   <div>
                     <input type="radio" name="pickup" onChange={() => setPickup(3000)} />
-                    <span>Within Ikorodu </span>
+                    <span>Ikorodu </span>
                   </div>
                   <p>{formatter(3000)}</p>
+                </div>
+                <div className={styles.pickupSingle}>
+                  <div>
+                    <input type="radio" name="pickup" onChange={() => {}} />
+                    <span>International Delivery(DHL or UPS) </span>
+                  </div>
+                  <p>Depends on the weight of the products</p>
                 </div>
               </>
             ) : (
@@ -217,7 +269,7 @@ const CheckoutBody = () => {
           <h3>Total</h3>
           <p>{formatter(total + pickup)}</p>
         </div>
-        {page === "Shipping" && pickupMethod === "Ship" && pickup != 0 && <PaystackButton {...componentProps} />}
+        {page === "Shipping" && pickupMethod === "Ship" && pickup != 0 && <button onClick={makePayment}>Place Order</button>}
         {page === "Billing" && (
           <button type="submit" className={styles.bill}>
             Continue to Shipping

@@ -1,35 +1,35 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import styles from "./styles.module.css";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
 const Banner = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const startTime = 100;
+  // const videoRef = useRef<HTMLVideoElement>(null);
+  // const startTime = 100;
 
-  useEffect(() => {
-    const video = videoRef.current;
-    if (video) {
-      const handleMetadata = () => {
-        video.currentTime = startTime;
-        video.play();
-      };
+  // useEffect(() => {
+  //   const video = videoRef.current;
+  //   if (video) {
+  //     const handleMetadata = () => {
+  //       video.currentTime = startTime;
+  //       video.play();
+  //     };
 
-      video.addEventListener("loadedmetadata", handleMetadata);
+  //     video.addEventListener("loadedmetadata", handleMetadata);
 
-      return () => {
-        video.removeEventListener("loadedmetadata", handleMetadata);
-      };
-    }
-  }, [startTime]);
+  //     return () => {
+  //       video.removeEventListener("loadedmetadata", handleMetadata);
+  //     };
+  //   }
+  // }, [startTime]);
   return (
     <div className={styles.container}>
       <div className={styles.overlay}></div>
-      <video autoPlay loop muted playsInline className={styles.video} ref={videoRef}>
+      {/* <video autoPlay loop muted playsInline className={styles.video} ref={videoRef}>
         <source src="/video.MP4" type="video/mp4" />
         Your browser does not support the video tag.
-      </video>
+      </video> */}
       <div className={styles.content}>
         <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2 }}>
           Indulge in Beauty Your Natural Glow with Lenas Organic Skincare

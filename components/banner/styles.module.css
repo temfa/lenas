@@ -4,6 +4,9 @@
     display: flex;
     align-items: center;
     width: 100%;
+    background-image: url("../../public/images/1.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .overlay {
