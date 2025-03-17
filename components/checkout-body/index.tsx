@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useRef, useState } from "react";
 import styles from "./styles.module.css";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useAppSelector } from "@/redux/store/store";
@@ -44,12 +44,9 @@ const CheckoutBody = () => {
   const [email, setEmail] = useState("");
   // const [name, setName] = useState("");
   // const [phoneNumber, setPhoneNumber] = useState("");
-  const [isClient, setIsClient] = useState(false);
   const found = cartItems?.find((element) => element.title === "Niacinamide hydrating mask");
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  const topRef = useRef<HTMLFormElement | null>(null);
 
   // const config: FlutterwaveConfig = {
   //   public_key: "FLWPUBK--X",
@@ -82,8 +79,9 @@ const CheckoutBody = () => {
       // if (typeof window !== "undefined") {
       //   window.scrollTo({ top: 0, behavior: "smooth" });
       // }
-      if (isClient) {
+      if (topRef.current) {
         //   window.scrollTo({ top: 0, behavior: "smooth" });
+        topRef.current.scrollIntoView({ behavior: "smooth" });
       }
     }
   };
@@ -129,7 +127,7 @@ const CheckoutBody = () => {
   };
 
   return (
-    <form className={styles.container} onSubmit={handleSubmit(submit)}>
+    <form className={styles.container} onSubmit={handleSubmit(submit)} ref={topRef}>
       <div className={styles.left}>
         <h2>{page === "Shipping" ? "Shipping Method" : "Billing Details"}</h2>
         {page === "Shipping" ? (
