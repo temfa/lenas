@@ -7,6 +7,7 @@ import Loading from "@/app/loading";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import BodyLayout from "@/layouts/body";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const persistor = persistStore(store);
@@ -19,7 +20,9 @@ export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <Provider store={store}>
       <PersistGate loading={<Loading />} persistor={persistor}>
-        <div className="new-body">{children}</div>
+        {/* <div className="new-body"> */}
+        <BodyLayout>{children}</BodyLayout>
+        {/* </div> */}
       </PersistGate>
     </Provider>
   );

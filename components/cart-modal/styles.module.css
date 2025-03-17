@@ -10,23 +10,24 @@
 }
 
 .container {
-    width: 600px;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: -600px;
+
+}
+
+.open {
+    right: 0;
+    transition: 0.5s all ease;
     height: 100vh;
-    overflow-y: scroll;
+    overflow: scroll;
     background-color: white;
     padding: 24px 0px;
     display: flex;
     flex-direction: column;
     gap: 48px;
     transition: 0.5s all ease;
-}
-
-.open {
-    right: 0;
-    transition: 0.5s all ease;
+    width: 600px;
 }
 
 .container::-webkit-scrollbar {

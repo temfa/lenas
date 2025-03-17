@@ -9,6 +9,7 @@ import Image from "next/image";
 import { formatter } from "@/utils/helper";
 import { addtoCart, reducetoCart, removeFromCart } from "@/redux/slice/cart";
 import Link from "next/link";
+import { useWindowWidth } from "@/hooks/useWidth";
 
 const CartModal = () => {
   const dispatch = useDispatch();
@@ -16,9 +17,10 @@ const CartModal = () => {
   const cartItems = useAppSelector((store) => store.cart);
 
   const total = cartItems?.reduce((a, b) => a + b.promoPrice * b.count, 0);
+  const width = useWindowWidth();
 
   useEffect(() => {
-    if (isCartOpen) {
+    if (isCartOpen && width > 500) {
       document.body.style.overflow = "hidden"; // Disable scrolling
     } else {
       document.body.style.overflow = ""; // Re-enable scrolling
@@ -27,7 +29,7 @@ const CartModal = () => {
     return () => {
       document.body.style.overflow = ""; // Cleanup when unmounted
     };
-  }, [isCartOpen]);
+  }, [isCartOpen, width]);
 
   const found = cartItems?.find((element) => element.title === "Niacinamide hydrating mask");
 
