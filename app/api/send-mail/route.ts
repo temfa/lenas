@@ -6,6 +6,7 @@ const mailerSend = new MailerSend({
 });
 
 export async function POST(request: Request) {
+  console.log(request);
   try {
     // Parse the request body
     const sentFrom = new Sender("topeakinfe@gmail.com", "Your name");
