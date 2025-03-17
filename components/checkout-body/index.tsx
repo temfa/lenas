@@ -276,6 +276,7 @@ const CheckoutBody = () => {
             );
           })}
         </div>
+
         {page === "Billing" && (
           <div className={styles.pickup}>
             <div>

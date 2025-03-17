@@ -23,6 +23,27 @@ const Banner = () => {
   //     };
   //   }
   // }, [startTime]);
+  // const sendPurchaseEmail = async (customerEmail: string, purchaseDetails: PurchaseDetails) => {
+  //   try {
+  //     const response = await fetch("/api/send-mail", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({ customerEmail, purchaseDetails }),
+  //     });
+
+  //     const result = await response.json();
+  //     console.log(result);
+  //   } catch (error) {
+  //     console.error("Error sending email:", error);
+  //   }
+  // };
+
+  // const customerEmail = "topeakinfe@gmail.com";
+  // const purchaseDetails = { item: "Product Name", amount: 100 };
+
+  // sendPurchaseEmail(customerEmailx, purchaseDetails);
   return (
     <div className={styles.container}>
       <div className={styles.overlay}></div>
@@ -31,6 +52,7 @@ const Banner = () => {
         Your browser does not support the video tag.
       </video> */}
       <div className={styles.content}>
+        {/* <button onClick={async () => await sendPurchaseEmail(customerEmail, purchaseDetails)}>Test</button> */}
         <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2 }}>
           Indulge in Beauty Your Natural Glow with Lenas Organic Skincare
         </motion.h1>
