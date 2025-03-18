@@ -262,7 +262,7 @@
         font-size: 14px;
     }
 
-    .left button {
+    .left>button {
         display: none;
     }
 
