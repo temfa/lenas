@@ -266,6 +266,23 @@
         display: none;
     }
 
+    .lefts {
+        width: 100%;
+    }
+
+    .lefts>img {
+        width: 100px;
+        object-fit: cover;
+    }
+
+    .detailse h3 {
+        font-size: 14px;
+    }
+
+    .detailse button {
+        width: 100%;
+    }
+
 
     .bill {
         display: block;
