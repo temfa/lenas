@@ -719,6 +719,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/nodemailer@npm:^6.4.17":
+  version: 6.4.17
+  resolution: "@types/nodemailer@npm:6.4.17"
+  dependencies:
+    "@types/node": "*"
+  checksum: 498b702575111494a42cf9cdd3d399f0308c3b3b0244e7f53008924327955a16b39ba0bf99a5ccf17af9fd2bc50a61a76ae7e8a75498a426ea2f828a05202eab
+  languageName: node
+  linkType: hard
+
 "@types/paystack__inline-js@npm:^1.0.1":
   version: 1.0.1
   resolution: "@types/paystack__inline-js@npm:1.0.1"
@@ -3074,6 +3083,7 @@ __metadata:
     "@reduxjs/toolkit": ^2.6.1
     "@types/aos": ^3.0.7
     "@types/node": ^20
+    "@types/nodemailer": ^6.4.17
     "@types/paystack__inline-js": ^1.0.1
     "@types/react": ^19
     "@types/react-dom": ^19
@@ -3087,6 +3097,7 @@ __metadata:
     mailersend: ^2.3.0
     next: 15.2.1
     next-sitemap: ^4.2.3
+    nodemailer: ^6.10.0
     react: ^19.0.0
     react-dom: ^19.0.0
     react-hook-form: ^7.54.2
@@ -3374,6 +3385,13 @@ __metadata:
     encoding:
       optional: true
   checksum: d76d2f5edb451a3f05b15115ec89fc6be39de37c6089f1b6368df03b91e1633fd379a7e01b7ab05089a25034b2023d959b47e59759cb38d88341b2459e89d6e5
+  languageName: node
+  linkType: hard
+
+"nodemailer@npm:^6.10.0":
+  version: 6.10.0
+  resolution: "nodemailer@npm:6.10.0"
+  checksum: 6d7fb0db8ceb521180a5346f2fbe84e9cf0872e9331e99ca4e420bd262407a92c34a17b0b921f17069daca50e908a099d463fcaa3a544b12564bf802574fa13f
   languageName: node
   linkType: hard
 

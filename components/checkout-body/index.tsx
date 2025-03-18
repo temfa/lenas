@@ -43,8 +43,9 @@ const CheckoutBody = () => {
   const [page, setPage] = useState("Billing");
   const [email, setEmail] = useState("");
   const [type, setType] = useState("");
-  // const [name, setName] = useState("");
-  // const [phoneNumber, setPhoneNumber] = useState("");
+  const [name, setName] = useState("");
+  const [address, setAddress] = useState("");
+  const [state, setState] = useState("");
   const found = cartItems?.find((element) => element.title === "Niacinamide hydrating mask");
 
   const topRef = useRef<HTMLFormElement | null>(null);
@@ -75,8 +76,9 @@ const CheckoutBody = () => {
     else {
       setPage("Shipping");
       setEmail(e.email);
-      // setName(`${e.lname} ${e.lname}`);
-      // setPhoneNumber(e.phone);
+      setName(`${e.lname} ${e.lname}`);
+      setAddress(e.address);
+      setState(e.state);
       // if (typeof window !== "undefined") {
       //   window.scrollTo({ top: 0, behavior: "smooth" });
       // }
@@ -116,11 +118,55 @@ const CheckoutBody = () => {
     text: "Place Order",
 
     onSuccess: () => {
-      toast.success("Payment successful");
-      reset();
-      dispatch(clearCart());
-      setPage("Billing");
-      setPickup(0);
+      const emailBody = `
+  <h1>New Order</h1>
+  <p>Dear Lenas,</p>
+  <p><strong>${name}</strong> just made a new order with <strong>${pickupMethod}</strong> and paid <strong>${formatter(pickup)}</strong> for shipping to:</p>
+  <p><strong>${address}, ${state}</strong></p>
+
+  <h2>Order Details:</h2>
+  <ul>
+    ${cartItems
+      ?.map(
+        (item) => `
+        <li>
+          <p><strong>Product Name:</strong> ${item.title}</p>
+          <p><strong>Quantity:</strong> ${item.count}</p>
+          <p><strong>Amount:</strong> ${formatter(item.promoPrice)}</p>
+          <p><strong>Size:</strong> ${item.size || "N/A"}</p>
+        </li>
+      `
+      )
+      .join("")}
+  </ul>
+
+  <h3>Total Amount Paid: ${formatter(total + pickup)}</h3>
+
+  <p>Thank you for your order!</p>
+`;
+
+      const data = {
+        to: "lenasorganicskincare@gmail.com",
+        name: "Lenas Organic Skincare",
+        subject: "New Order",
+        html: emailBody,
+      };
+
+      const options = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      };
+
+      fetch(`https://lenasorganicskincare.com/api/send`, options).then(() => {
+        toast.success("Payment successful");
+        reset();
+        dispatch(clearCart());
+        setPage("Billing");
+        setPickup(0);
+      });
     },
     onCancel: () => {
       toast.error("Payment cancelled");
