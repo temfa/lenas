@@ -108,6 +108,58 @@ const CheckoutBody = () => {
 
   const publicKey = "pk_live_b99a01c0e6a9702b38a82ab273bfe84ecff44249";
 
+  //   const test = () => {
+  //     const emailBody = `
+  //   <h1>New Order</h1>
+  //   <p>Dear Lenas,</p>
+  //   <p><strong>${name}</strong> just made a new order with <strong>${pickupMethod}</strong> and paid <strong>${formatter(pickup)}</strong> for shipping to:</p>
+  //   <p><strong>${address}, ${state}</strong></p>
+
+  //   <h2>Order Details:</h2>
+  //   <ul>
+  //     ${cartItems
+  //       ?.map(
+  //         (item) => `
+  //         <li>
+  //           <p><strong>Product Name:</strong> ${item.title}</p>
+  //           <p><strong>Quantity:</strong> ${item.count}</p>
+  //           <p><strong>Amount:</strong> ${formatter(item.promoPrice)}</p>
+  //           <p><strong>Size:</strong> ${item.count || 1}</p>
+  //         </li>
+  //       `
+  //       )
+  //       .join("")}
+  //   </ul>
+
+  //   <h3>Total Amount Paid: ${formatter(total + pickup)}</h3>
+
+  //   <p>Thank you for your order!</p>
+  // `;
+
+  //     const data = {
+  //       to: "lenasorganicskincare@gmail.com",
+  //       name: "Lenas Organic Skincare",
+  //       subject: "New Order",
+  //       body: emailBody,
+  //     };
+
+  //     const options = {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(data),
+  //     };
+
+  //     fetch(`/api/send`, options).then(() => {
+  //       toast.success("Payment successful");
+  //       reset();
+  //       dispatch(clearCart());
+  //       setPage("Billing");
+  //       setPickup(0);
+  //     });
+  //   };
+
   const componentProps = {
     email,
 
@@ -133,7 +185,7 @@ const CheckoutBody = () => {
           <p><strong>Product Name:</strong> ${item.title}</p>
           <p><strong>Quantity:</strong> ${item.count}</p>
           <p><strong>Amount:</strong> ${formatter(item.promoPrice)}</p>
-          <p><strong>Size:</strong> ${item.size || "N/A"}</p>
+          <p><strong>Size:</strong> ${item.count || 1}</p>
         </li>
       `
       )
@@ -149,7 +201,7 @@ const CheckoutBody = () => {
         to: "lenasorganicskincare@gmail.com",
         name: "Lenas Organic Skincare",
         subject: "New Order",
-        html: emailBody,
+        body: emailBody,
       };
 
       const options = {
@@ -251,6 +303,7 @@ const CheckoutBody = () => {
               </div> */}
               </div>
             )}
+            {/* <h2 onClick={test}>Test</h2> */}
             <div className={styles.group}>
               <label htmlFor="fname">First Name</label>
               <input type="text" {...register("fname", { required: "First Name is required" })} />
