@@ -229,6 +229,14 @@ export const products = [
     size: "250ml",
     image: "/images/27.jpg",
   },
+  {
+    title: "Hydra Face soap",
+    price: 12000,
+    promoPrice: 8400,
+    description: "For all skin types",
+    size: "",
+    image: "/images/29.jpg",
+  },
 ];
 
 export type CartType = {
