@@ -402,6 +402,7 @@ const CheckoutBody = () => {
         </div>
         {page === "Shipping" && pickupMethod === "Ship" && pickup != 0 && <PaystackButton {...componentProps} />}
         {page === "Shipping" && pickupMethod === "Ship" && type === "International" && <PaystackButton {...componentProps} />}
+        {page === "Shipping" && pickupMethod === "Pickup" && <PaystackButton {...componentProps} />}
         {page === "Billing" && (
           <button type="submit" className={styles.bill}>
             Continue to Shipping
