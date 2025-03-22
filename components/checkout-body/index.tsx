@@ -4,13 +4,15 @@ import styles from "./styles.module.css";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useAppSelector } from "@/redux/store/store";
 import Image from "next/image";
-import { formatter } from "@/utils/helper";
+import { formatter, generateRandomID } from "@/utils/helper";
 // import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { location } from "@/utils/data";
 import { useDispatch } from "react-redux";
 import { addtoCart, clearCart } from "@/redux/slice/cart";
 import { PaystackButton } from "react-paystack";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "@/utils/firebase";
 
 // import { closePaymentModal, useFlutterwave } from "flutterwave-react-v3";
 // import { FlutterwaveConfig } from "flutterwave-react-v3/dist/types";
@@ -45,6 +47,7 @@ const CheckoutBody = () => {
   const [type, setType] = useState("");
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [state, setState] = useState("");
   const found = cartItems?.find((element) => element.title === "Niacinamide hydrating mask");
 
@@ -76,9 +79,10 @@ const CheckoutBody = () => {
     else {
       setPage("Shipping");
       setEmail(e.email);
-      setName(`${e.lname} ${e.lname}`);
+      setName(`${e.lname} ${e.fname}`);
       setAddress(e.address);
       setState(e.state);
+      setPhoneNumber(e.phone);
       // if (typeof window !== "undefined") {
       //   window.scrollTo({ top: 0, behavior: "smooth" });
       // }
@@ -175,6 +179,7 @@ const CheckoutBody = () => {
   <p>Dear Lenas,</p>
   <p><strong>${name}</strong> just made a new order with <strong>${pickupMethod}</strong> and paid <strong>${formatter(pickup)}</strong> for shipping to:</p>
   <p><strong>${address}, ${state}</strong></p>
+  <p><strong>${phoneNumber}</strong></p>
 
   <h2>Order Details:</h2>
   <ul>
@@ -219,8 +224,30 @@ const CheckoutBody = () => {
         setPage("Billing");
         setPickup(0);
       });
+      const ID = generateRandomID(6);
+      const docRef = doc(db, "orders", ID);
+
+      const payload = {
+        cart: cartItems,
+        name,
+        address,
+        state,
+        email,
+        phoneNumber,
+        ID,
+        shipping: pickupMethod,
+        shippingFee: pickup,
+      };
+
+      setDoc(docRef, payload)
+        .then(() => {
+          console.log("Saved successfully");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
-    onCancel: () => {
+    onClose: () => {
       toast.error("Payment cancelled");
     },
   };
