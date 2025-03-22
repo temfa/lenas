@@ -35,7 +35,7 @@ export const SingleOrderBody = ({ id }: { id: string }) => {
         promoPrice: 0,
         count: 0,
         description: "",
-        image: "/image/1.jpeg",
+        image: "/images/1.jpeg",
         price: 0,
         size: "",
         title: "",
