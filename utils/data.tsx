@@ -23,7 +23,7 @@ export const products = [
     promoPrice: 10500,
     description: "Restores beards shine , Strengthen beards & Treats Ingrown hairs.",
     size: "50ml",
-    image: "/images/7.jpeg",
+    image: "/images/32.jpg",
   },
   {
     title: "Natural Brightening Soap",
@@ -137,7 +137,7 @@ export const products = [
     promoPrice: 11500,
     description: "Softens , Condition , & Promotes beards growth",
     size: "500ml",
-    image: "/images/4.jpeg",
+    image: "/images/31.jpg",
   },
   {
     title: "Hydra Glow Collagen Face Cream",
