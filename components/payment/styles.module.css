@@ -1,0 +1,133 @@
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 21;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.none {
+    display: none;
+}
+
+.modal {
+    width: 550px;
+    border-radius: 16px;
+    background-color: white;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.modalHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modalHeader svg:last-child {
+    cursor: pointer;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.info h2 {
+    font-size: 20px;
+    line-height: 32px;
+    color: #000;
+    letter-spacing: 0.6px;
+    font-weight: 600;
+}
+
+.info p {
+    font-size: 16px;
+    line-height: 24px;
+    color: #000;
+    letter-spacing: 0.5px;
+    font-weight: 300;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.single {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.single p {
+    font-size: 14px;
+    line-height: 24px;
+    color: #000;
+    /* letter-spacing: 0.5px; */
+}
+
+.single h2 {
+    font-size: 16px;
+    line-height: 32px;
+    color: #000;
+    font-weight: 600;
+    /* letter-spacing: 0.6px; */
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.buttons button {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    padding: 10px 0px;
+    border-radius: 8px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+}
+
+.buttons button:first-child {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+}
+
+.buttons button:last-child {
+    background-color: black;
+    color: white;
+}
+
+@media screen and (max-width: 500px) {
+    .modal {
+        width: 90%;
+    }
+
+    .info h2 {
+        font-size: 16px;
+    }
+
+    .info p,
+    .single p,
+    .single h2 {
+        font-size: 12px;
+    }
+
+
+}

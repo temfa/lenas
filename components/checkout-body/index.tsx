@@ -10,9 +10,11 @@ import { toast } from "react-toastify";
 import { location } from "@/utils/data";
 import { useDispatch } from "react-redux";
 import { addtoCart, clearCart } from "@/redux/slice/cart";
-import { PaystackButton } from "react-paystack";
+// import { PaystackButton } from "react-paystack";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "@/utils/firebase";
+import { Payment } from "../payment";
+import { clearModalOpen, setModalOpen } from "@/redux/slice/modalOpen";
 
 // import { closePaymentModal, useFlutterwave } from "flutterwave-react-v3";
 // import { FlutterwaveConfig } from "flutterwave-react-v3/dist/types";
@@ -49,6 +51,7 @@ const CheckoutBody = () => {
   const [address, setAddress] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [state, setState] = useState("");
+  const [payment, setPayment] = useState(false);
   const found = cartItems?.find((element) => element.title === "Niacinamide hydrating mask");
 
   const topRef = useRef<HTMLFormElement | null>(null);
@@ -110,7 +113,7 @@ const CheckoutBody = () => {
   //   });
   // };
 
-  const publicKey = "pk_live_b99a01c0e6a9702b38a82ab273bfe84ecff44249";
+  // const publicKey = "pk_live_b99a01c0e6a9702b38a82ab273bfe84ecff44249";
 
   //   const test = () => {
   //     const emailBody = `
@@ -164,17 +167,96 @@ const CheckoutBody = () => {
   //     });
   //   };
 
-  const componentProps = {
-    email,
+  //   const componentProps = {
+  //     email,
 
-    amount: (total + pickup) * 100,
+  //     amount: (total + pickup) * 100,
 
-    publicKey,
+  //     publicKey,
 
-    text: "Place Order",
+  //     text: "Place Order",
 
-    onSuccess: () => {
-      const emailBody = `
+  //     onSuccess: () => {
+  //       const emailBody = `
+  //   <h1>New Order</h1>
+  //   <p>Dear Lenas,</p>
+  //   <p><strong>${name}</strong> just made a new order with <strong>${pickupMethod}</strong> and paid <strong>${formatter(pickup)}</strong> for shipping to:</p>
+  //   <p><strong>${address}, ${state}</strong></p>
+  //   <p><strong>${phoneNumber}</strong></p>
+
+  //   <h2>Order Details:</h2>
+  //   <ul>
+  //     ${cartItems
+  //       ?.map(
+  //         (item) => `
+  //         <li>
+  //           <p><strong>Product Name:</strong> ${item.title}</p>
+  //           <p><strong>Quantity:</strong> ${item.count}</p>
+  //           <p><strong>Amount:</strong> ${formatter(item.promoPrice)}</p>
+  //           <p><strong>Size:</strong> ${item.count || 1}</p>
+  //         </li>
+  //       `
+  //       )
+  //       .join("")}
+  //   </ul>
+
+  //   <h3>Total Amount Paid: ${formatter(total + pickup)}</h3>
+
+  //   <p>Thank you for your order!</p>
+  // `;
+
+  //       const data = {
+  //         to: "lenasorganicskincare@gmail.com",
+  //         name: "Lenas Organic Skincare",
+  //         subject: "New Order",
+  //         body: emailBody,
+  //       };
+
+  //       const options = {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify(data),
+  //       };
+
+  //       fetch(`https://lenasorganicskincare.com/api/send`, options).then(() => {
+  //         toast.success("Payment successful");
+  //         reset();
+  //         dispatch(clearCart());
+  //         setPage("Billing");
+  //         setPickup(0);
+  //       });
+  //       const ID = generateRandomID(6);
+  //       const docRef = doc(db, "orders", ID);
+
+  //       const payload = {
+  //         cart: cartItems,
+  //         name,
+  //         address,
+  //         state,
+  //         email,
+  //         phoneNumber,
+  //         ID,
+  //         shipping: pickupMethod,
+  //         shippingFee: pickup,
+  //       };
+
+  //       setDoc(docRef, payload)
+  //         .then(() => {
+  //           console.log("Saved successfully");
+  //         })
+  //         .catch((error) => {
+  //           console.log(error);
+  //         });
+  //     },
+  //     onClose: () => {
+  //       toast.error("Payment cancelled");
+  //     },
+  //   };
+
+  const makePayments = () => {
+    const emailBody = `
   <h1>New Order</h1>
   <p>Dear Lenas,</p>
   <p><strong>${name}</strong> just made a new order with <strong>${pickupMethod}</strong> and paid <strong>${formatter(pickup)}</strong> for shipping to:</p>
@@ -202,54 +284,51 @@ const CheckoutBody = () => {
   <p>Thank you for your order!</p>
 `;
 
-      const data = {
-        to: "lenasorganicskincare@gmail.com",
-        name: "Lenas Organic Skincare",
-        subject: "New Order",
-        body: emailBody,
-      };
+    const data = {
+      to: "lenasorganicskincare@gmail.com",
+      name: "Lenas Organic Skincare",
+      subject: "New Order",
+      body: emailBody,
+    };
 
-      const options = {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      };
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    };
 
-      fetch(`https://lenasorganicskincare.com/api/send`, options).then(() => {
-        toast.success("Payment successful");
-        reset();
-        dispatch(clearCart());
-        setPage("Billing");
-        setPickup(0);
+    fetch(`https://lenasorganicskincare.com/api/send`, options).then(() => {
+      toast.success("Payment successful");
+      reset();
+      dispatch(clearCart());
+      setPage("Billing");
+      setPickup(0);
+      setPayment(false);
+    });
+    const ID = generateRandomID(6);
+    const docRef = doc(db, "orders", ID);
+
+    const payload = {
+      cart: cartItems,
+      name,
+      address,
+      state,
+      email,
+      phoneNumber,
+      ID,
+      shipping: pickupMethod,
+      shippingFee: pickup,
+    };
+
+    setDoc(docRef, payload)
+      .then(() => {
+        console.log("Saved successfully");
+      })
+      .catch((error) => {
+        console.log(error);
       });
-      const ID = generateRandomID(6);
-      const docRef = doc(db, "orders", ID);
-
-      const payload = {
-        cart: cartItems,
-        name,
-        address,
-        state,
-        email,
-        phoneNumber,
-        ID,
-        shipping: pickupMethod,
-        shippingFee: pickup,
-      };
-
-      setDoc(docRef, payload)
-        .then(() => {
-          console.log("Saved successfully");
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    },
-    onClose: () => {
-      toast.error("Payment cancelled");
-    },
   };
 
   return (
@@ -427,14 +506,55 @@ const CheckoutBody = () => {
           <h3>Total</h3>
           <p>{formatter(total + pickup)}</p>
         </div>
-        {page === "Shipping" && pickupMethod === "Ship" && pickup != 0 && <PaystackButton {...componentProps} />}
-        {page === "Shipping" && pickupMethod === "Ship" && type === "International" && <PaystackButton {...componentProps} />}
-        {page === "Shipping" && pickupMethod === "Pickup" && <PaystackButton {...componentProps} />}
+        {
+          page === "Shipping" && pickupMethod === "Ship" && pickup != 0 && (
+            <button
+              onClick={() => {
+                setPayment(true);
+                dispatch(setModalOpen(true));
+              }}>
+              Place Order
+            </button>
+          )
+          // <PaystackButton {...componentProps} />
+        }
+        {
+          page === "Shipping" && pickupMethod === "Ship" && type === "International" && (
+            <button
+              onClick={() => {
+                setPayment(true);
+                dispatch(setModalOpen(true));
+              }}>
+              Place Order
+            </button>
+          )
+          // <PaystackButton {...componentProps} />
+        }
+        {
+          page === "Shipping" && pickupMethod === "Pickup" && (
+            <button
+              onClick={() => {
+                setPayment(true);
+                dispatch(setModalOpen(true));
+              }}>
+              Place Order
+            </button>
+          )
+          // <PaystackButton {...componentProps} />
+        }
         {page === "Billing" && (
           <button type="submit" className={styles.bill}>
             Continue to Shipping
           </button>
         )}
+        <Payment
+          confirm={makePayments}
+          action={() => {
+            setPayment(false);
+            dispatch(clearModalOpen());
+          }}
+          state={payment}
+        />
       </div>
     </form>
   );
