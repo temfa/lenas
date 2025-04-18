@@ -53,9 +53,9 @@ const Banner = () => {
       </video> */}
       <div className={styles.content}>
         {/* <button onClick={async () => await sendPurchaseEmail(customerEmail, purchaseDetails)}>Test</button> */}
-        <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2 }}>
+        <motion.h2 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2 }}>
           Indulge in Beauty Your Natural Glow with Lenas Organic Skincare
-        </motion.h1>
+        </motion.h2>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 4 }}>
           Our luxurious skincare formulations are crafted to nourish, rejuvenate, and reveal your inner radiance.
         </motion.p>

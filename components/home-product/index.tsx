@@ -30,7 +30,17 @@ const HomeProducts: FC<Props> = ({ data, page }) => {
       <div className={styles.body} data-aos="fade-in" data-aos-duration="1000" data-aos-easing="ease-in" data-aos-mirror="true" data-aos-once="false">
         {data?.map((item, index) => {
           return (
-            <SingleProduct image={item.image} title={item.title} description={item.description} price={item.price} size={item.size} key={index} promoPrice={item.promoPrice} />
+            <SingleProduct
+              image={item.image}
+              title={item.title}
+              description={item.description}
+              // price={item.price + 2000}
+              price={item.price}
+              size={item.size}
+              key={index}
+              promoPrice={item.promoPrice}
+              // promoPrice={(item.price + 2000) * 0.5}
+            />
           );
         })}
       </div>

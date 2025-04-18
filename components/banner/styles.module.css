@@ -40,7 +40,7 @@
     gap: 16px;
 }
 
-.content h1 {
+.content h2 {
     font-size: 60px;
     font-weight: 700;
     line-height: 72px;
@@ -75,7 +75,7 @@
         padding: 0px 32px;
     }
 
-    .content h1 {
+    .content h2 {
         font-size: 36px;
         line-height: 64px;
     }
