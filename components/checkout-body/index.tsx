@@ -554,6 +554,7 @@ const CheckoutBody = () => {
             dispatch(clearModalOpen());
           }}
           state={payment}
+          amount={total + pickup}
         />
       </div>
     </form>

@@ -2,14 +2,16 @@ import React, { FC } from "react";
 import styles from "./styles.module.css";
 import MoneySvg from "@/svgs/money";
 import Close from "@/svgs/close";
+import { formatter } from "@/utils/helper";
 
 type Props = {
   action: () => void;
   confirm: () => void;
   state: boolean;
+  amount: number;
 };
 
-export const Payment: FC<Props> = ({ action, confirm, state }) => {
+export const Payment: FC<Props> = ({ action, confirm, state, amount }) => {
   return (
     <div className={state ? styles.overlay : styles.none}>
       <div className={styles.modal}>
@@ -33,6 +35,10 @@ export const Payment: FC<Props> = ({ action, confirm, state }) => {
           <div className={styles.single}>
             <p>Bank Name</p>
             <h2>Access Bank Plc</h2>
+          </div>
+          <div className={styles.single}>
+            <p>Amount</p>
+            <h2>{formatter(amount)}</h2>
           </div>
         </div>
         <div className={styles.buttons}>

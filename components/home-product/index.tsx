@@ -34,12 +34,10 @@ const HomeProducts: FC<Props> = ({ data, page }) => {
               image={item.image}
               title={item.title}
               description={item.description}
-              // price={item.price + 2000}
-              price={item.price}
+              price={item.price + 2000}
               size={item.size}
               key={index}
-              promoPrice={item.promoPrice}
-              // promoPrice={(item.price + 2000) * 0.5}
+              promoPrice={(item.price + 2000) * 0.5}
             />
           );
         })}
