@@ -11,7 +11,7 @@ import { location } from "@/utils/data";
 import { useDispatch } from "react-redux";
 import { addtoCart, clearCart } from "@/redux/slice/cart";
 // import { PaystackButton } from "react-paystack";
-import { doc, setDoc } from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore";
 import { db } from "@/utils/firebase";
 import { Payment } from "../payment";
 import { clearModalOpen, setModalOpen } from "@/redux/slice/modalOpen";
@@ -255,80 +255,78 @@ const CheckoutBody = () => {
   //     },
   //   };
 
-  const makePayments = () => {
-    const emailBody = `
-  <h1>New Order</h1>
-  <p>Dear Lenas,</p>
-  <p><strong>${name}</strong> just made a new order with <strong>${pickupMethod}</strong> and paid <strong>${formatter(pickup)}</strong> for shipping to:</p>
-  <p><strong>${address}, ${state}</strong></p>
-  <p><strong>${phoneNumber}</strong></p>
+  const makePayments = async () => {
+    try {
+      const emailBody = `
+    <h1>New Order</h1>
+    <p>Dear Lenas,</p>
+    <p><strong>${name}</strong> just made a new order with <strong>${pickupMethod}</strong> and paid <strong>${formatter(pickup)}</strong> for shipping to:</p>
+    <p><strong>${address}, ${state}</strong></p>
+    <p><strong>${phoneNumber}</strong></p>
+  
+    <h2>Order Details:</h2>
+    <ul>
+      ${cartItems
+        ?.map(
+          (item) => `
+          <li>
+            <p><strong>Product Name:</strong> ${item.title}</p>
+            <p><strong>Quantity:</strong> ${item.count}</p>
+            <p><strong>Amount:</strong> ${formatter(item.promoPrice)}</p>
+            <p><strong>Size:</strong> ${item.size}</p>
+          </li>
+        `
+        )
+        .join("")}
+    </ul>
+  
+    <h3>Total Amount Paid: ${formatter(total + pickup)}</h3>
+  
+    <p>Thank you for your order!</p>
+  `;
 
-  <h2>Order Details:</h2>
-  <ul>
-    ${cartItems
-      ?.map(
-        (item) => `
-        <li>
-          <p><strong>Product Name:</strong> ${item.title}</p>
-          <p><strong>Quantity:</strong> ${item.count}</p>
-          <p><strong>Amount:</strong> ${formatter(item.promoPrice)}</p>
-          <p><strong>Size:</strong> ${item.count || 1}</p>
-        </li>
-      `
-      )
-      .join("")}
-  </ul>
+      const data = {
+        to: "lenasorganicskincare@gmail.com",
+        name: "Lenas Organic Skincare",
+        subject: "New Order",
+        body: emailBody,
+      };
 
-  <h3>Total Amount Paid: ${formatter(total + pickup)}</h3>
+      const options = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      };
 
-  <p>Thank you for your order!</p>
-`;
+      await fetch(`https://lenasorganicskincare.com/api/send`, options);
 
-    const data = {
-      to: "lenasorganicskincare@gmail.com",
-      name: "Lenas Organic Skincare",
-      subject: "New Order",
-      body: emailBody,
-    };
+      const ID = generateRandomID(6);
+      const payload = {
+        cart: cartItems,
+        name,
+        address,
+        state,
+        email,
+        phoneNumber,
+        ID,
+        shipping: pickupMethod,
+        shippingFee: pickup,
+        createdAt: new Date(),
+      };
 
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    };
-
-    fetch(`https://lenasorganicskincare.com/api/send`, options).then(() => {
+      await addDoc(collection(db, "orders"), payload);
       toast.success("Payment successful");
       reset();
       dispatch(clearCart());
       setPage("Billing");
       setPickup(0);
       setPayment(false);
-    });
-    const ID = generateRandomID(6);
-    const docRef = doc(db, "orders", ID);
-
-    const payload = {
-      cart: cartItems,
-      name,
-      address,
-      state,
-      email,
-      phoneNumber,
-      ID,
-      shipping: pickupMethod,
-      shippingFee: pickup,
-    };
-
-    setDoc(docRef, payload)
-      .then(() => {
-        console.log("Saved successfully");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    } catch (error) {
+      console.error("Payment failed:", error);
+      toast.error("Something went wrong. Please try again.");
+    }
   };
 
   return (
