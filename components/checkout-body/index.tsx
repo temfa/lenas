@@ -257,39 +257,15 @@ const CheckoutBody = () => {
 
   const makePayments = async () => {
     try {
-      const emailBody = `
-    <h1>New Order</h1>
-    <p>Dear Lenas,</p>
-    <p><strong>${name}</strong> just made a new order with <strong>${pickupMethod}</strong> and paid <strong>${formatter(pickup)}</strong> for shipping to:</p>
-    <p><strong>${address}, ${state}</strong></p>
-    <p><strong>${phoneNumber}</strong></p>
-  
-    <h2>Order Details:</h2>
-    <ul>
-      ${cartItems
-        ?.map(
-          (item) => `
-          <li>
-            <p><strong>Product Name:</strong> ${item.title}</p>
-            <p><strong>Quantity:</strong> ${item.count}</p>
-            <p><strong>Amount:</strong> ${formatter(item.promoPrice)}</p>
-            <p><strong>Size:</strong> ${item.size}</p>
-          </li>
-        `
-        )
-        .join("")}
-    </ul>
-  
-    <h3>Total Amount Paid: ${formatter(total + pickup)}</h3>
-  
-    <p>Thank you for your order!</p>
-  `;
-
       const data = {
-        to: "lenasorganicskincare@gmail.com",
-        name: "Lenas Organic Skincare",
-        subject: "New Order",
-        body: emailBody,
+        name,
+        pickupMethod,
+        pickup,
+        address,
+        state,
+        phoneNumber,
+        total,
+        cartItems,
       };
 
       const options = {
@@ -300,7 +276,7 @@ const CheckoutBody = () => {
         body: JSON.stringify(data),
       };
 
-      await fetch(`https://lenasorganicskincare.com/api/send`, options);
+      await fetch(`https://lenasorganicskincare.com/api/send-mail`, options);
 
       const ID = generateRandomID(6);
       const payload = {

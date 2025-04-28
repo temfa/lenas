@@ -1,34 +1,33 @@
-import { NextResponse } from "next/server";
-import { EmailParams, MailerSend, Recipient, Sender } from "mailersend";
+import { EmailTemplate } from "@/utils/template";
+import { Resend } from "resend";
 
-const mailerSend = new MailerSend({
-  apiKey: process.env.MAILERSEND_API_KEY as string,
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
-  console.log(request);
+  const payload = await request.json();
   try {
-    // Parse the request body
-    const sentFrom = new Sender("topeakinfe@gmail.com", "Your name");
+    const { data, error } = await resend.emails.send({
+      from: "Lenas Organic Skincare <onboarding@resend.dev>",
+      to: ["lenasorganicskincare@gmail.com"],
+      subject: "New Order",
+      react: EmailTemplate({
+        name: payload?.name,
+        pickupMethod: payload?.pickupMethod,
+        pickup: payload?.pickup,
+        address: payload?.address,
+        state: payload?.state,
+        phoneNumber: payload?.phoneNumber,
+        total: payload?.total,
+        cartItems: payload?.cartItems,
+      }) as React.ReactElement,
+    });
 
-    const recipients = [new Recipient("akinfetemitope5@gmail.com", "Your Client")];
+    if (error) {
+      return Response.json({ error }, { status: 500 });
+    }
 
-    const emailParams = new EmailParams()
-      .setFrom(sentFrom)
-      .setTo(recipients)
-      .setReplyTo(sentFrom)
-      .setSubject("This is a Subject")
-      .setHtml("<strong>This is the HTML content</strong>")
-      .setText("This is the text content");
-
-    await mailerSend.email.send(emailParams);
-
-    // Return a success response
-    return NextResponse.json({ message: "Email sent successfully!" }, { status: 200 });
+    return Response.json(data);
   } catch (error) {
-    console.error("Error processing request:", error);
-
-    // Return an error response
-    return NextResponse.json({ message: "Failed to process request" }, { status: 500 });
+    return Response.json({ error }, { status: 500 });
   }
 }
