@@ -296,6 +296,7 @@ const CheckoutBody = () => {
       toast.success("Payment successful");
       reset();
       dispatch(clearCart());
+      dispatch(clearModalOpen());
       setPage("Billing");
       setPickup(0);
       setPayment(false);
