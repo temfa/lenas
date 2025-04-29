@@ -1,12 +1,13 @@
 "use client";
-import React, { FC, useEffect, useState } from "react";
+import React, { FC } from "react";
 import styles from "./styles.module.css";
 import Image from "next/image";
 import { formatter } from "@/utils/helper";
 import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
 import { addtoCart } from "@/redux/slice/cart";
-import { setCartOpen } from "@/redux/slice/cartOpen";
+import { toast } from "react-toastify";
+// import { setCartOpen } from "@/redux/slice/cartOpen";
 
 type Props = {
   image: string;
@@ -19,11 +20,11 @@ type Props = {
 
 const SingleProduct: FC<Props> = ({ image, title, description, size, price, promoPrice }) => {
   const dispatch = useDispatch();
-  const [isClient, setIsClient] = useState(false);
+  // const [isClient, setIsClient] = useState(false);
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  // useEffect(() => {
+  //   setIsClient(true);
+  // }, []);
 
   const addItemCart = () => {
     const cartDetails = {
@@ -36,10 +37,11 @@ const SingleProduct: FC<Props> = ({ image, title, description, size, price, prom
       count: 1,
     };
     dispatch(addtoCart(cartDetails));
-    if (isClient) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-    dispatch(setCartOpen(true));
+    toast.success("Added to Cart Successfully!!");
+    // if (isClient) {
+    //   window.scrollTo({ top: 0, behavior: "smooth" });
+    // }
+    // dispatch(setCartOpen(true));
   };
 
   return (
