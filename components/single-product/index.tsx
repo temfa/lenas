@@ -64,7 +64,7 @@ const SingleProduct: FC<Props> = ({ image, title, description, size, price, prom
           <p>{size}</p>
           <div>
             <p>{formatter(price)}</p>
-            <p>{formatter(promoPrice)}</p>
+            {/* <p>{formatter(promoPrice)}</p> */}
           </div>
         </div>
       </div>

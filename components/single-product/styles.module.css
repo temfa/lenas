@@ -74,9 +74,9 @@
     gap: 20px;
 }
 
-.price div p:first-child {
+/* .price div p:first-child {
     text-decoration: line-through;
-}
+} */
 
 .container .buy {
     width: 100%;
